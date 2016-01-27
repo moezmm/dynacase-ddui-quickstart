@@ -1,0 +1,23 @@
+book:
+    title: "Quick Start"
+    module: "Dynacase Document UI"
+    githubsrc: "https://github.com/Anakeen/dynacase-quick-start-ddui"
+    id_prefix: "ddui-qs"
+    collapse_code: 15
+    version: "1.0"
+    edition: "1"
+    chapters:
+        - level:   1
+          content:  "00-introduction.md"
+        - level:   1
+          content:  "10-preparation.md"
+        - level:   1
+          content:  "20-decouverte.md"
+        - level:   1
+          content:  "30-responsive.md"
+        - level:   1
+          content:  "40-wizard.md"
+        - level:   1
+          content:  "50-integration.md"
+        - level:   1
+          content:  "60-extra.md"
