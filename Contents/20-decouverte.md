@@ -5,7 +5,7 @@
 Dynacase Document UIs est un module Dynacase permettant de générer une représensation des documents au moyen des
 technologies HTML5.
 
-Le rendu des documents sans ce module est fait par le serveur, sous la forme d'une page HTML4 _monolythique_.
+Le rendu des documents sans ce module est fait par le serveur, sous la forme d'une page HTML4 _monolithique_.
 Dynacase Document UIs permet à la génération de se faire côté client au moyen de Javascript, HTML5 et CSS.
 
 Cela apporte les avantages suivants :
