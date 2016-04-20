@@ -105,7 +105,7 @@ la représentation traditionnelle et la représentation HTML5.
 
 -   Le changement d'état se fait depuis un menu sur l'état courant (à droite de la barre de menus)
 
--   En modification, les attributs sont construits au moyen de la version open source de al librairie
+-   En modification, les attributs sont construits au moyen de la version open source de la librairie
     [Kendo UI][kendo-ui-opensource].
     
     Cela amène une meilleure homogénéité des différents types d'attributs, ainsi qu'une plus grande souplesse.
