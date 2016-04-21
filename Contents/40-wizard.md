@@ -1192,7 +1192,7 @@ Les sources avant cette étapes correspondent au [tag `step-40-100`][step-40-100
 
 #### Code {#ddui-qs:e35f66b4-55dd-485b-86ac-30ca778d338c}
 
-Le clic sur ce bouton émet [événement de type action][ddui-ref_event-action].
+Le clic sur ce bouton émet un [événement de type action][ddui-ref_event-action].
 Cet événement est traité en ajoutant la gestion de l'action `wizard.end`
 dans l'écouteur `actionClick.wizard.contact` dans le fichier
 [`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/Layout/wizard.js`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-40-110/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/Layout/wizard.js "Télécharger le fichier complété").
