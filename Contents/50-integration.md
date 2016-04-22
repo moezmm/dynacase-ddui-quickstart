@@ -129,7 +129,7 @@ pour signaler à l'application que ce document est modifié :
     );
 
 <span class="flag inline nota-bene"></span> Ici, nous nous contentons de déclencher l'événement en charge de la mise à
-jour de l'application. le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
+jour de l'application. Le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
 présenté. Il est néanmoins accessible dans le code source dans le fichier
 [`SIMPLE_LIST/Layout/main.js`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-00-00/SIMPLE_LIST/Layout/main.js "voir le fichier sur github").
 
@@ -186,7 +186,7 @@ pour signaler à l'application que ce document a été sauvegardé :
     );
 
 <span class="flag inline nota-bene"></span> Ici, nous nous contentons de déclencher l'événement en charge de la mise à
-jour de l'application. le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
+jour de l'application. Le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
 présenté. Il est néanmoins accessible dans le code source dans le fichier
 [`SIMPLE_LIST/Layout/main.js`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-00-00/SIMPLE_LIST/Layout/main.js "voir le fichier sur github").
 
@@ -347,7 +347,7 @@ pour signaler à l'application que ce document a été supprimé:
     );
 
 <span class="flag inline nota-bene"></span> Ici, nous nous contentons de déclencher l'événement en charge de la mise à
-jour de l'application. le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
+jour de l'application. Le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
 présenté. Il est néanmoins accessible dans le code source dans le fichier
 [`SIMPLE_LIST/Layout/main.js`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-00-00/SIMPLE_LIST/Layout/main.js "voir le fichier sur github").
 
@@ -403,7 +403,7 @@ pour signaler à l'application que ce document a été restauré :
     )
 
 <span class="flag inline nota-bene"></span> Ici, nous nous contentons de déclencher l'événement en charge de la mise à
-jour de l'application. le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
+jour de l'application. Le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
 présenté. Il est néanmoins accessible dans le code source dans le fichier
 [`SIMPLE_LIST/Layout/main.js`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-00-00/SIMPLE_LIST/Layout/main.js "voir le fichier sur github").
 
