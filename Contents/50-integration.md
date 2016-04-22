@@ -79,7 +79,7 @@ pour signaler à l'application que ce document est affiché.
 
 #### Déploiement {#ddui-qs:53810925-0ca9-4247-832e-240de38546c8}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-10`][step-50-10]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-10`][step-50-10].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -135,7 +135,7 @@ présenté. Il est néanmoins accessible dans le code source dans le fichier
 
 #### Déploiement {#ddui-qs:dc86d2e9-bf2f-4ef0-8205-5e07228efbc0}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-20`][step-50-20]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-20`][step-50-20].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -192,7 +192,7 @@ présenté. Il est néanmoins accessible dans le code source dans le fichier
 
 #### Déploiement {#ddui-qs:65a3f452-ee38-4441-bc41-cd622f51e62e}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-30`][step-50-30]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-30`][step-50-30].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -239,7 +239,7 @@ ajoutons un écouteur de l'événement `buttonCreateClicked`, qui charge l'inter
 
 #### Déploiement {#ddui-qs:83501cab-9222-47d7-87e2-66428c7d72a2}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-40`][step-50-40]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-40`][step-50-40].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -297,7 +297,7 @@ dans la méthode `addDocumentListeners` du fichier
 
 #### Déploiement {#ddui-qs:222252c9-0754-4705-a83e-582bb7edf86b}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-50`][step-50-50]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-50`][step-50-50].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -353,7 +353,7 @@ présenté. Il est néanmoins accessible dans le code source dans le fichier
 
 #### Déploiement {#ddui-qs:ba8ce5db-22f2-4585-95ac-6c9b160c1f80}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-60`][step-50-60]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-60`][step-50-60].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -409,7 +409,7 @@ présenté. Il est néanmoins accessible dans le code source dans le fichier
 
 #### Déploiement {#ddui-qs:a5720ea9-da15-40d6-8a31-87d8b3ac5146}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-70`][step-50-70]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-70`][step-50-70].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -472,7 +472,7 @@ pour demander une confirmation lorsque le document affiché est modifié :
 
 #### Déploiement {#ddui-qs:29f166df-86df-475e-a989-df2115973fc3}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-80`][step-50-80]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-80`][step-50-80].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -502,6 +502,7 @@ un message de confirmation est affiché.
 [step-50-50]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-50.zip
 [step-50-60]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-60.zip
 [step-50-70]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-70.zip
+[step-50-80]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-80.zip
 [devtools-ref]: #FIXME
 [ddui-ref_widget-events-listen]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:9ad493b6-1f05-43f6-90f0-4b1223345738.html#ddui-ref:e04afb6f-d710-41c6-98be-1d35979ac898
 [ddui-ref_widget-events-change]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:a1a7c169-6bd7-4c67-83cf-918c8793fbbe.html#ddui-ref:2405df1f-9fd0-4d42-b862-f3d5657f485d
