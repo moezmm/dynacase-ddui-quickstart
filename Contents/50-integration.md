@@ -25,7 +25,7 @@ Nous allons écouter cet événement et afficher le document dans la zone `.docu
 
 #### Récupération des sources {#ddui-qs:62e098d5-2992-493a-8453-d531ab51f918}
 
-Les sources avant cette étapes correspondent au [tag `step-50-00`][step-50-00].
+Les sources avant cette étape correspondent au [tag `step-50-00`][step-50-00].
 
 #### Code {#ddui-qs:3769b0cc-7988-4641-8dd2-94821ddf70b9}
 
@@ -105,7 +105,7 @@ Nous allons réagir à l'événement [`change`][ddui-ref_widget-events-change] d
 
 #### Récupération des sources {#ddui-qs:ad0319c7-49c1-4eff-bc7a-d62fdeb576c6}
 
-Les sources avant cette étapes correspondent au [tag `step-50-10`][step-50-10].
+Les sources avant cette étape correspondent au [tag `step-50-10`][step-50-10].
 
 #### Code {#ddui-qs:c72d0097-d1f3-4587-9fc7-049c2c2e979f}
 
@@ -162,7 +162,7 @@ Nous allons réagir à l'événement [`afterSave`][ddui-ref_widget-events-afterS
 
 #### Récupération des sources {#ddui-qs:a02ceeef-5d48-462c-be16-b4a6f7f23acf}
 
-Les sources avant cette étapes correspondent au [tag `step-50-20`][step-50-20].
+Les sources avant cette étape correspondent au [tag `step-50-20`][step-50-20].
 
 #### Code {#ddui-qs:c540c97e-9ffb-41df-997c-65d4af0f0aad}
 
@@ -220,7 +220,7 @@ Lors du clic sur le bouton `Nouveau Contact`, l'application déclenche un évén
 
 #### Récupération des sources {#ddui-qs:ec65e108-b97e-4520-9f3f-43fe9e74f7c1}
 
-Les sources avant cette étapes correspondent au [tag `step-50-30`][step-50-30].
+Les sources avant cette étape correspondent au [tag `step-50-30`][step-50-30].
 
 #### Code {#ddui-qs:b9bef7f7-df14-4599-9f6e-17e16bd1a3b2}
 
@@ -267,7 +267,7 @@ et signaler une création à l'interface dans le cas où le document n'avait pas
 
 #### Récupération des sources {#ddui-qs:983ae717-149b-4ffe-80c7-9f61764a5b2b}
 
-Les sources avant cette étapes correspondent au [tag `step-50-40`][step-50-40].
+Les sources avant cette étape correspondent au [tag `step-50-40`][step-50-40].
 
 #### Code {#ddui-qs:31efccb7-3fd3-4fef-92e0-ef8dcacc4bdd}
 
@@ -323,7 +323,7 @@ Nous allons réagir à l'événement [`afterDelete`][ddui-ref_widget-events-afte
 
 #### Récupération des sources {#ddui-qs:155d7e4d-93c3-4aff-9430-7549a0453636}
 
-Les sources avant cette étapes correspondent au [tag `step-50-50`][step-50-50].
+Les sources avant cette étape correspondent au [tag `step-50-50`][step-50-50].
 
 #### Code {#ddui-qs:bb39bcd9-ca27-4484-85b6-bb3983e31ae6}
 
@@ -379,7 +379,7 @@ Nous allons réagir à l'événement [`afterRestore`][ddui-ref_widget-events-aft
 
 #### Récupération des sources {#ddui-qs:45e1cdee-cc73-420c-9cfd-19dec2de0a25}
 
-Les sources avant cette étapes correspondent au [tag `step-50-60`][step-50-60].
+Les sources avant cette étape correspondent au [tag `step-50-60`][step-50-60].
 
 #### Code {#ddui-qs:2e8d05fb-e6ca-4bc8-ada7-d1f2d9cdd004}
 
@@ -437,7 +437,7 @@ Nous allons demander une confirmation à l'utilisateur avant la perte de ces mod
 
 #### Récupération des sources {#ddui-qs:14f573c9-6d29-4603-beaa-cf7acc6f7687}
 
-Les sources avant cette étapes correspondent au [tag `step-50-70`][step-50-70].
+Les sources avant cette étape correspondent au [tag `step-50-70`][step-50-70].
 
 #### Code {#ddui-qs:0d08e1c2-a4d3-4fe4-ab30-ced599b9dc53}
 

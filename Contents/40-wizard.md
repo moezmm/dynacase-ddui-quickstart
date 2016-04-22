@@ -44,7 +44,7 @@ qui va déterminer la vue suivante en fonction de :
 
 #### Récupération des sources {#ddui-qs:ce5b29aa-58a9-46fd-8521-267938eebdd4}
 
-Les sources avant cette étapes correspondent au [tag `step-40-00`][step-40-00].
+Les sources avant cette étape correspondent au [tag `step-40-00`][step-40-00].
 
 #### Code {#ddui-qs:dc1398f3-e752-458b-a391-ede6fa38baac}
 
@@ -200,7 +200,7 @@ envoyées par le client au moyen des [`customClientData`][ddui-ref_customClientD
 
 #### Récupération des sources {#ddui-qs:e73b9df2-0f20-4310-a231-5bbe45241c51}
 
-Les sources avant cette étapes correspondent au [tag `step-40-10`][step-40-10].
+Les sources avant cette étape correspondent au [tag `step-40-10`][step-40-10].
 
 #### Code {#ddui-qs:e5e186b3-9d88-4675-94b2-3f5967a0bb4e}
 
@@ -458,7 +458,7 @@ pour afficher les différentes étapes du wizard au dessus du menu.
 
 #### Récupération des sources {#ddui-qs:976b1bbc-e387-43be-a343-342236feaa58}
 
-Les sources avant cette étapes correspondent au [tag `step-40-20`][step-40-20].
+Les sources avant cette étape correspondent au [tag `step-40-20`][step-40-20].
 
 #### Code {#ddui-qs:d289942c-1a9b-4638-854f-6adc02865b0c}
 
@@ -656,7 +656,7 @@ Les entrées de menu vont être surchargées :
 
 #### Récupération des sources {#ddui-qs:17c70b7a-baf9-406a-965c-0681cf9f36f9}
 
-Les sources avant cette étapes correspondent au [tag `step-40-30`][step-40-30].
+Les sources avant cette étape correspondent au [tag `step-40-30`][step-40-30].
 
 #### Code {#ddui-qs:7cab3997-c721-481e-869b-81b31172f5fe}
 
@@ -755,7 +755,7 @@ Ce template sera généré à la volée à partir des informations des vues.
 
 #### Récupération des sources {#ddui-qs:1898e2c5-d7e1-4b37-a21f-016eb4e65a6a}
 
-Les sources avant cette étapes correspondent au [tag `step-40-40`][step-40-40].
+Les sources avant cette étape correspondent au [tag `step-40-40`][step-40-40].
 
 #### Code {#ddui-qs:39be91e0-98ab-4916-9404-c8882f66e921}
 
@@ -811,7 +811,7 @@ au moyen des [customServerData][ddui-ref_customServerData]
 
 #### Récupération des sources {#ddui-qs:feffb5e2-9918-429e-aa67-c005f8c6a44e}
 
-Les sources avant cette étapes correspondent au [tag `step-40-50`][step-40-50].
+Les sources avant cette étape correspondent au [tag `step-40-50`][step-40-50].
 
 #### Code {#ddui-qs:7ca90642-a2c0-427a-a2b6-a908bbb6eba0}
 
@@ -856,7 +856,7 @@ Aucun changement n'est perceptible dans cette étape car ces données seront uti
 
 #### Récupération des sources {#ddui-qs:457bbebb-742c-4d46-acf3-1dd5b89c344a}
 
-Les sources avant cette étapes correspondent au [tag `step-40-60`][step-40-60].
+Les sources avant cette étape correspondent au [tag `step-40-60`][step-40-60].
 
 #### Code {#ddui-qs:1c00b3d8-62ef-4ed0-8dd8-68e04dcf4268}
 
@@ -950,7 +950,7 @@ Lors du click sur les éléments de menu, un [événement de type action][ddui-r
 
 #### Récupération des sources {#ddui-qs:7a3cb27d-12b8-4559-a84d-664d79425a68}
 
-Les sources avant cette étapes correspondent au [tag `step-40-70`][step-40-70].
+Les sources avant cette étape correspondent au [tag `step-40-70`][step-40-70].
 
 #### Code {#ddui-qs:617a0daf-f367-4631-8d99-bcd204da154d}
 
@@ -1042,7 +1042,7 @@ nous constatons qu'il est possible de naviguer d'étape en étape au moyen du me
 
 #### Récupération des sources {#ddui-qs:d70781bf-0927-4e30-bc23-fcb29e303ac2}
 
-Les sources avant cette étapes correspondent au [tag `step-40-80`][step-40-80].
+Les sources avant cette étape correspondent au [tag `step-40-80`][step-40-80].
 
 #### Code {#ddui-qs:62ae0215-a94e-42e4-ba09-3dc6a8688f96}
 
@@ -1127,7 +1127,7 @@ nous constatons qu'il est possible de naviguer d'étape en étape en cliquant su
 
 #### Récupération des sources {#ddui-qs:8b13ac65-7da4-4394-bcf4-cc745bb450ee}
 
-Les sources avant cette étapes correspondent au [tag `step-40-90`][step-40-90].
+Les sources avant cette étape correspondent au [tag `step-40-90`][step-40-90].
 
 #### Code {#ddui-qs:62e3698e-2d61-44f5-af7b-0cfb259f0ff0}
 
@@ -1188,7 +1188,7 @@ Lorsque l'utilisateur clique sur le bouton de fin de wizard, le document est enr
 
 #### Récupération des sources {#ddui-qs:744e0932-6f38-4534-95da-9a92042daa78}
 
-Les sources avant cette étapes correspondent au [tag `step-40-100`][step-40-100].
+Les sources avant cette étape correspondent au [tag `step-40-100`][step-40-100].
 
 #### Code {#ddui-qs:e35f66b4-55dd-485b-86ac-30ca778d338c}
 
@@ -1305,7 +1305,7 @@ En consultation, le menu de modification doit afficher l'étape en cours.
 
 #### Récupération des sources {#ddui-qs:4be2acee-2a06-4178-a9a2-f1196e67ecf0}
 
-Les sources avant cette étapes correspondent au [tag `step-40-110`][step-40-110].
+Les sources avant cette étape correspondent au [tag `step-40-110`][step-40-110].
 
 #### Code {#ddui-qs:624ed3c9-05ce-452a-a202-6b2c47b0f829}
 

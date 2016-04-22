@@ -52,7 +52,7 @@ Cette application sera composée des éléments Dynacase suivants :
 
 ### Récupération des sources {#ddui-qs:7436d855-2dc9-4aec-aa11-995db2ece57a}
 
-Les sources avant cette étapes correspondent au [tag `step-20-00`][step-20-00].
+Les sources avant cette étape correspondent au [tag `step-20-00`][step-20-00].
 
 ### Code {#ddui-qs:c3f52086-083b-42e6-9729-92d868f82298}
 

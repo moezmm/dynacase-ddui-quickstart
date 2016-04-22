@@ -30,7 +30,7 @@ Pour rappel, le contrôle de rendu se manipule de la même manière que le contr
 
 #### Récupération des sources {#ddui-qs:9d17f619-f5db-4a78-83ec-50cda72ff6aa}
 
-Les sources avant cette étapes correspondent au [tag `step-30-00`][step-30-00].
+Les sources avant cette étape correspondent au [tag `step-30-00`][step-30-00].
 
 #### Paramétrage {#ddui-qs:fff4857a-08a8-4221-9098-fc99072681c0}
 
@@ -128,7 +128,7 @@ Soit, en images :
 
 #### Récupération des sources {#ddui-qs:48d53f72-b22a-4db9-b0d2-a2732e236a39}
 
-Les sources avant cette étapes correspondent au [tag `step-30-10`][step-30-10].
+Les sources avant cette étape correspondent au [tag `step-30-10`][step-30-10].
 
 #### Code {#ddui-qs:a2538ab3-be40-4650-89ce-20db41766692}
 
@@ -279,7 +279,7 @@ Nous allons définir un template qui surcharge l'intégralité du corps du docum
 
 #### Récupération des sources {#ddui-qs:b44968b5-6469-4bce-8563-17bf8649ca67}
 
-Les sources avant cette étapes correspondent au [tag `step-30-20`][step-30-20].
+Les sources avant cette étape correspondent au [tag `step-30-20`][step-30-20].
 
 #### Code {#ddui-qs:cd338260-f74e-4b8c-b319-c9bd6599c606}
 
