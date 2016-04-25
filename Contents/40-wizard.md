@@ -425,40 +425,51 @@ et elle n'est fournie qu'à titre d'exemple.
             $frames = [];
             // keep the currently applied mask id
             $initMid = $contact->getPropertyValue('mid');
-            if($mskId !== $initMid){
+            if($mskId !== $initMid) {
                 $contact->setMask($mskId);
-
-                // get fields attributes
-                foreach ($contact->getNormalAttributes() as $attribute) {
-                    // only keep visible attributes
-                    if ('W' === $attribute->mvisibility
-                        || 'O' === $attribute->mvisibility
-                    ) {
-                        $fields[$attribute->ordered] = [
-                            'attrid' => $attribute->id,
-                            'required' => $attribute->needed,
-                            'label' => $attribute->getLabel(),
-                            'type' => $attribute->type,
-                            'filled' => trim($contact->getRawValue($attribute->id)) !== ""
+            }
+            
+            // get fields attributes
+            foreach ($contact->getNormalAttributes() as $attribute) {
+                // only keep visible attributes
+                if ('W' === $attribute->mvisibility
+                    || 'O' === $attribute->mvisibility
+                ) {
+                    // add the attribute to the list of fieldset attributes
+                    $fields[$attribute->ordered] = [
+                        'attrid' => $attribute->id,
+                        'required' => $attribute->needed,
+                        'label' => $attribute->getLabel(),
+                        'type' => $attribute->type,
+                        'order' => $attribute->ordered,
+                        'filled' => trim($contact->getRawValue($attribute->id)) !== ""
+                    ];
+                    // get the corresponding frame
+                    do {
+                        $fieldset = $attribute->fieldSet;
+                    } while ($fieldset->type !== 'frame');
+                    // remember the lowest order of attributes visible in this frame
+                    if(!isset($frames[$fieldset->id])) {
+                        $frames[$fieldset->id] = [
+                            'attrid' => $fieldset->id,
+                            'label' => $fieldset->getLabel(),
+                            'order' => $attribute->ordered
                         ];
+                    } else {
+                        $frames[$fieldset->id]['order'] = min(
+                            $frames[$fieldset->id]['order'],
+                            $attribute->ordered
+                        );
                     }
                 }
-
-                // get fieldset attributes
-                foreach ($contact->getFieldAttributes() as $attribute) {
-                    // only keep visible frames
-                    if ($attribute->type === 'frame'
-                        && ('W' === $attribute->mvisibility
-                            || 'O' === $attribute->mvisibility)
-                    ) {
-                        $frames[] = [
-                            'attrid' => $attribute->id,
-                            'label' => $attribute->getLabel()
-                        ];
-
-                    }
-                }
-
+            }
+            
+            // order fieldset attributes
+            usort($frames, function ($a, $b) {
+                return $a['order'] - $b['order'];
+            });
+            
+            if ($mskId !== $initMid) {
                 // restore initial mask
                 $contact->setMask($initMid);
             }
