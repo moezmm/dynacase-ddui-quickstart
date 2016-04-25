@@ -167,7 +167,7 @@ La commande est donc :
 
 #### Le résultat {#ddui-qs:4642aa2a-a191-470a-aec5-13786a481999}
 
-En accédant au contact _John DOE_ en modification à l'adresse [http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+En accédant au contact _John DOE_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html),
 nous constatons que seul le cadre _identité_ est présenté.
 En effet, notre classe d'accès à un rendu retourne null, laissant le contrôle de rendu afficher sa vue par défaut,
 c'est à dire la première vue de modification.
@@ -206,8 +206,13 @@ Les sources avant cette étape correspondent au [tag `step-40-10`][step-40-10].
 
 On ajoute la méthode `initWizardInfos` à la classe `ContactWizardRenderConfigEdit` dans le fichier
 [`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactWizardRenderConfigEdit.php`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-40-20/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactWizardRenderConfigEdit.php "Télécharger le fichier complété").
-Cette méthode récupère les données envoyées par le client, et stocke les informations sur les vues dans la propriété
-`wizardInfos`. Elle va également déterminer la vue à appliquer, et la stocker également dans cette propriété :
+Cette méthode récupère les données envoyées par le client, et stocke en cache les informations sur les vues
+dans la propriété `wizardInfos`.
+Elle va également déterminer la vue à appliquer, et la stocker également dans cette propriété.
+
+<span class="flag inline nota-bene"></span> Cette méthode est une manière d'implémenter un wizard.
+Sa complexité n'a aucun intérêt particulier pour le compréhension du tutoriel,
+et elle n'est fournie qu'à titre d'exemple.
 
     [php]
     <?php
@@ -221,141 +226,211 @@ Cette méthode récupère les données envoyées par le client, et stocke les in
     {
         protected $wizardInfos;
     
+        /**
+         * @param \Doc $document the document object
+         * @param bool $force recompute wizard infos even if they are already cached
+         *
+         * compute and cache informations about views
+         * from the viewrender associated with the document
+         */
         public function initWizardInfos(\Doc $document, $force = false) {
             if($force || is_null($this->wizardInfos)) {
                 $wizardSteps = [];
                 $wizardCurrentStepKey = 0;
                 $wizardNextStep = null;
                 $goto = null;
+                
+                // get the list of wizard views
+                $wizardViews = $this->getWizardViews($document);
+                $nbSteps = count($wizardViews);
+                
+                // get informations on the wizard stored in a tag of the document
+                // it contains last visited step
                 $wizardTags = $document->getUTag('wizard');
                 if(false === $wizardTags) {
                     $wizardTags = [];
                 } else {
                     $wizardTags = json_decode($wizardTags->comment, true);
                 }
-    
+                
+                // get informations transmitted by the client
+                // it contains
+                // - (optional)currentWizardStepName: the name of the step currently displayed
+                // - (optional)goto: where the wizard wants to go
+                //    - wizard.targetStep: the name of the step requested is in targetStep
+                //    - wizard.previous: the wizard is asking the previous viewable step
+                //    - wizard.next: the wizard is asking the next viewable step
+                // - (required if goto = wizard.targetStep)targetStep:
+                //      the name of the next step the wizard is asking to display
                 $customClientData = \Dcp\Ui\Utils::getCustomClientData();
-                if (isset($customClientData['currentWizardStepName'])) {
+                
+                if (isset($customClientData['goto']) && 'wizard.targetStep' === $customClientData['goto']) {
+                    // a specific step has been asked
+                    $currentWizardStepName = $customClientData['targetStep'];
+                } elseif (isset($customClientData['currentWizardStepName'])) {
+                    // stay on the current step
                     $currentWizardStepName = $customClientData['currentWizardStepName'];
                 } else {
+                    // the wizard did not gave current step name
+                    // (probably because we are displaying the document from consultation or from application menu)
                     if(isset($wizardTags['currentWizardStepName']))
                     {
+                        // but the document has already been displayed and the last visited step has been stored
+                        // it will be the default step
                         $currentWizardStepName = $wizardTags['currentWizardStepName'];
                     } else {
+                        // first visit to this document with the wizard
                         $currentWizardStepName = null;
                     }
                 }
-    
-                // get the list of wizard views
-                $wizardViews = $this->getWizardViews($document);
-    
-                if (isset($customClientData['goto']) && 'wizard.targetStep' === $customClientData['goto']) {
-                    $currentWizardStepName = $customClientData['targetStep'];
-                }
-    
+                
                 foreach ($wizardViews as $key => $wizardView) {
+                    // inject attributes informations in the step informations
                     $wizardView['attributes'] = $this->getWizardViewAttributes(
                         $document,
                         $wizardView[CvrenderAttributes::cv_mskid]
                     );
-    
+                    
+                    // add the step to the list of steps
                     $wizardSteps[] = $wizardView;
+                    
                     if ($wizardView[CvrenderAttributes::cv_idview] === $currentWizardStepName
                     ) {
+                        // keep the index of this step as the current one
                         $wizardCurrentStepKey = $key;
                     }
                 }
-                $nbSteps = count($wizardSteps);
-    
+                
+                // get the index of the step to display:
+                // - current (by default),
+                // - next or previous relative to the current
+                $wizardTargetStepKey = $wizardCurrentStepKey;
                 if (isset($customClientData['goto'])) {
-                    switch($customClientData['goto']) {
+                    switch ($customClientData['goto']) {
                     case 'wizard.previous':
-                        if(0 < $wizardCurrentStepKey) {
-                            $wizardCurrentStepKey--;
+                        // display the step before
+                        if (0 < $wizardCurrentStepKey) {
+                            $wizardTargetStepKey = $wizardCurrentStepKey - 1;
                         }
-                    break;
+                        break;
                     case 'wizard.next':
-                        if ($nbSteps-1 > $wizardCurrentStepKey) {
-                            $wizardCurrentStepKey++;
+                        if ($nbSteps - 1 > $wizardCurrentStepKey) {
+                            $wizardTargetStepKey = $wizardCurrentStepKey + 1;
                         }
+                        break;
+                    default:
+                        break;
                     }
                 }
-    
-                $wizardSteps[$wizardCurrentStepKey]['current'] = true;
-    
+                
+                // mark the target step as current
+                $wizardSteps[$wizardTargetStepKey]['current'] = true;
+                
+                // register the current step informations as a user tag
                 $wizardTags['currentWizardStepName']
-                    = $wizardSteps[$wizardCurrentStepKey][CvrenderAttributes::cv_idview];
+                    = $wizardSteps[$wizardTargetStepKey][CvrenderAttributes::cv_idview];
                 $wizardTags['currentWizardStepLabel']
-                    = $wizardSteps[$wizardCurrentStepKey][CvrenderAttributes::cv_lview];
+                    = $wizardSteps[$wizardTargetStepKey][CvrenderAttributes::cv_lview];
                 $document->addUTag($document->getSystemUserId(), 'wizard', json_encode($wizardTags));
-    
+                
+                // apply the mask defined by the view/step
                 $document->setMask(
-                    $wizardSteps[$wizardCurrentStepKey][CvrenderAttributes::cv_mskid]
+                    $wizardSteps[$wizardTargetStepKey][CvrenderAttributes::cv_mskid]
                 );
-    
+                
+                // cache computed informations so that we do not need to compute them again
                 $this->wizardInfos = [
                     "steps" => $wizardSteps,
-                    "previousStep" => (isset($wizardSteps[$wizardCurrentStepKey - 1])
-                        ? $wizardSteps[$wizardCurrentStepKey - 1]
+                    "previousStep" => (isset($wizardSteps[$wizardTargetStepKey - 1])
+                        ? $wizardSteps[$wizardTargetStepKey - 1]
                         : null),
-                    "currentStep" => $wizardSteps[$wizardCurrentStepKey],
-                    "nextStep" => (isset($wizardSteps[$wizardCurrentStepKey + 1])
-                        ? $wizardSteps[$wizardCurrentStepKey + 1]
+                    "currentStep" => $wizardSteps[$wizardTargetStepKey],
+                    "nextStep" => (isset($wizardSteps[$wizardTargetStepKey + 1])
+                        ? $wizardSteps[$wizardTargetStepKey + 1]
                         : null),
                     "nbSteps" => $nbSteps
                 ];
             }
         }
-    
+        
+        /**
+         * @param \Doc $document the document
+         *
+         * @return array
+         *
+         * get all wizard views from the cvdoc,
+         * and return them sorted by order
+         */
         protected function getWizardViews(\Doc $document)
         {
             $wizardViews = [];
-    
+            
             $cvId = $document->getPropertyValue('cvid');
             /** @var CvrenderFamily $cvDoc */
             $cvDoc = new_Doc('', $cvId, true);
             if ($cvDoc->isAlive()) {
                 $cvDoc->set($document);
-    
-                $wizardViews = $cvDoc->getArrayRawValues(
-                    CvrenderAttributes::cv_t_views
-                );
-    
+                
+                // get all the views
+                $wizardViews = $cvDoc->getViews();
+                
+                // only keep wizard views
+                // that the user is allowed to see
                 $wizardViews = array_filter(
                     $wizardViews,
-                    function ($value) {
-                        return "WIZARD_" === substr(
-                            $value[CvrenderAttributes::cv_idview], 0, 7
-                        );
+                    function ($view) use ($cvDoc) {
+                        $idView = $view[CvrenderAttributes::cv_idview];
+                        $mode = $view[CvrenderAttributes::cv_kview];
+                        return (("WIZARD_" === substr($idView, 0, 7))
+                            && ("VEDIT" === $mode)
+                            && ("" === $cvDoc->control($idView)));
                     }
                 );
-    
+                
+                // order the views
                 usort(
                     $wizardViews,
-                    function ($value1, $value2) {
-                        if ($value1[CvrenderAttributes::cv_order]
-                            === $value2[CvrenderAttributes::cv_order]
+                    function ($view1, $view2) {
+                        if ($view1[CvrenderAttributes::cv_order]
+                            === $view2[CvrenderAttributes::cv_order]
                         ) {
-                            return 0;
+                            // if they have the same order, sort them by id
+                            return ($view1[CvrenderAttributes::cv_idview]
+                                < $view2[CvrenderAttributes::cv_idview]) ? -1 : 1;
                         }
-                        return ($value1[CvrenderAttributes::cv_order]
-                            < $value2[CvrenderAttributes::cv_order]) ? -1 : 1;
+                        return ($view1[CvrenderAttributes::cv_order]
+                            < $view2[CvrenderAttributes::cv_order]) ? -1 : 1;
                     }
                 );
             }
-    
+            
             return $wizardViews;
         }
-    
+        
+        /**
+         * @param \Doc    $contact
+         * @param integer $mskId
+         *
+         * @return array
+         *
+         * return information on the attributes to display for this view
+         * according to the mask:
+         * - frames: a list of frames
+         * - fields: a list of attributes
+         * - nbFields: the number of fields
+         */
         protected function getWizardViewAttributes(\Doc $contact, $mskId)
         {
             $fields = [];
             $frames = [];
+            // keep the currently applied mask id
             $initMid = $contact->getPropertyValue('mid');
             if($mskId !== $initMid){
                 $contact->setMask($mskId);
-    
+
+                // get fields attributes
                 foreach ($contact->getNormalAttributes() as $attribute) {
+                    // only keep visible attributes
                     if ('W' === $attribute->mvisibility
                         || 'O' === $attribute->mvisibility
                     ) {
@@ -368,8 +443,10 @@ Cette méthode récupère les données envoyées par le client, et stocke les in
                         ];
                     }
                 }
-    
+
+                // get fieldset attributes
                 foreach ($contact->getFieldAttributes() as $attribute) {
+                    // only keep visible frames
                     if ($attribute->type === 'frame'
                         && ('W' === $attribute->mvisibility
                             || 'O' === $attribute->mvisibility)
@@ -378,12 +455,14 @@ Cette méthode récupère les données envoyées par le client, et stocke les in
                             'attrid' => $attribute->id,
                             'label' => $attribute->getLabel()
                         ];
-    
+
                     }
                 }
+
+                // restore initial mask
                 $contact->setMask($initMid);
             }
-    
+            
             return [
                 'frames' => array_values($frames),
                 'fields' => array_values($fields),
@@ -447,7 +526,7 @@ La commande est donc :
 
 #### Le résultat {#ddui-qs:5af86030-8a8e-459d-b9b1-81253dd13a7e}
 
-En accédant au contact _John DOE_ en modification à l'adresse [http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+En accédant au contact _John DOE_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html),
 nous constatons que seul le cadre _identité_ est présenté.
 En effet, en l'absence de données du client, la première vue est sélectionnée et appliquée.
 
@@ -644,7 +723,7 @@ La commande est donc :
 
 #### Le résultat {#ddui-qs:f3a62e88-2c97-4fb6-97e2-f25564c10da6}
 
-En accédant au contact _John DOE_ en modification à l'adresse [http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+En accédant au contact _John DOE_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html),
 nous constatons que le bandeau de navigation entre les différentes étapes est maintenant visible.
 
 ### Partie serveur : Personnalisation du menu {#ddui-qs:ae07c2ce-3037-4215-bfb5-893814f8bc96}
@@ -744,7 +823,7 @@ La commande est donc :
 #### Le résultat {#ddui-qs:9b18cdcf-00a4-49a0-a765-1a067113234c}
 
 En accédant au contact _John DOE_ en modification à l'adresse
-[http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+[http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html),
 nous constatons que le menu présente de nouvelles entrées en lieu et place des anciennes.
 
 ### Partie serveur : Personnalisation du corps du document {#ddui-qs:8f4d8c64-508e-4ef0-bc9e-1e12bdb4737a}
@@ -941,8 +1020,11 @@ La commande est donc :
 #### Le résultat {#ddui-qs:63cb9890-66cf-4f2c-8777-ef3b69c5d284}
 
 En accédant au contact _John DOE_ en modification à l'adresse
-[http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+[http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html),
 nous constatons que les chevrons sont colorés en fonction des attributs renseignés.
+
+<span class="flag inline nota-bene"></span> le contact _John Doe_ a tous ses attributs renseignés,
+donc tout est au vert.
 
 ### Partie client : Gestion des menus {#ddui-qs:0c8d783c-bc94-4296-b0fe-f45c54ec71de}
 
@@ -1035,7 +1117,7 @@ La commande est donc :
 #### Le résultat {#ddui-qs:aca3ea75-e03c-4c4d-8bab-aca2123f6f28}
 
 En accédant au contact _John DOE_ en modification à l'adresse
-[http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+[http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html),
 nous constatons qu'il est possible de naviguer d'étape en étape au moyen du menu.
 
 ### Partie client : Gestion du clic sur une étape {#ddui-qs:0c9079c0-94d8-4990-a304-6ab83ed4f878}
@@ -1120,7 +1202,7 @@ La commande est donc :
 #### Le résultat {#ddui-qs:fca11ecd-69b0-48c6-bec5-6159c22ee858}
 
 En accédant au contact _John DOE_ en modification à l'adresse
-[http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+[http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html),
 nous constatons qu'il est possible de naviguer d'étape en étape en cliquant sur le libellé des étapes.
 
 ### Partie client : rafraîchissement du résumé lors des changements de valeur {#ddui-qs:861f5783-6771-46e5-906a-da45fc57a462}
@@ -1178,7 +1260,7 @@ La commande est donc :
 #### Le résultat {#ddui-qs:a8e3d03b-663c-4e66-bcfd-280ac6b36fe0}
 
 En accédant au contact _John DOE_ en modification à l'adresse
-[http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+[http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html),
 nous constatons que le bandeau de navigation est bien rafraîchi
 lors de l'ajout ou de la suppression d'une valeur dans le document.
 
@@ -1296,7 +1378,7 @@ La commande est donc :
 #### Le résultat {#ddui-qs:a98d847e-1e42-46c6-a256-3cd328f691f2}
 
 En accédant au contact _John DOE_ en modification à l'adresse
-[http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+[http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html),
 nous constatons que le bouton de fin de wizard est fonctionnel.
 
 ### Partie serveur : Prise en compte du libellé d'étape en consultation {#ddui-qs:fc1ae666-23da-47d9-a9d6-f65cfdcaf6c5}
@@ -1356,7 +1438,7 @@ La commande est donc :
 #### Le résultat {#ddui-qs:65663ead-a3d1-4def-8ea9-284e166084a8}
 
 En accédant au contact _John DOE_ en consultation à l'adresse
-[http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultConsultation](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultConsultation),
+[http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultConsultation.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultConsultation.html),
 nous constatons que le bouton de modification reflète bien la dernière étape consultée.
 
 ## Conclusion {#ddui-qs:b7d9b582-52be-48d4-8168-5a7f1205f73a}

@@ -91,7 +91,7 @@ Le déploiement se fait au moyen du _developer toolkit_
 
 #### Le résultat {#ddui-qs:84d478b7-c22f-4184-808b-2da2229d2f55}
 
-En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE),
+En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html),
 aucun changement n'est perceptible.
 En effet, nous avons juste mis en place les points d'entrée pour nos personnalisation à venir.
 
@@ -262,7 +262,7 @@ Le déploiement se fait au moyen du _developer toolkit_
 
 #### Le résultat {#ddui-qs:772de2b3-2c8a-4a60-80a5-b1f7b131c554}
 
-En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE),
+En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html),
 on constate bien que les éléments sont réorganisés en fonction de la résolution.
 
 ### Utilisation des templates {#ddui-qs:05b15596-6671-4ff1-ba3a-c904a6e91d2d}
@@ -316,11 +316,11 @@ Voici le fichier final :
             $jsReferences = parent::getJsReferences();
     
             $jsReferences["bootstrap_collapse"]
-                = "../lib/bootstrap/3/js/collapse.js?ws="
+                = "lib/bootstrap/3/js/collapse.js?ws="
                 . $version;
     
             $jsReferences["jsqr"]
-                = "../lib/jsqr/jsqr-1.0.2-min.js?ws="
+                = "lib/jsqr/jsqr-1.0.2-min.js?ws="
                 . $version;
     
             return $jsReferences;
@@ -527,7 +527,7 @@ Le déploiement se fait au moyen du _developer toolkit_
 
 #### Le résultat {#ddui-qs:dd54a044-6ae9-42c3-95d7-24aba3386c47}
 
-En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE),
+En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html),
 la page ressemble à ce qui était attendu.
 De plus, le redimensionnement de la page réorganise bien les éléments.
 

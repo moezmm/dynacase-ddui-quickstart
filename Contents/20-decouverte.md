@@ -83,7 +83,7 @@ Il est possible de consulter le document
 -   dans sa __représentation standard__ à l'adresse
     [http://localhost:8080/?app=FDL&action=FDL_CARD&latest=Y&id=CONTACT_JOHN_DOE](http://localhost:8080/?app=FDL&action=FDL_CARD&latest=Y&id=CONTACT_JOHN_DOE)
 -   dans sa __représentation HTML5__ à l'adresse
-    [http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE)
+    [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html)
 
 Pour plus d'explications sur l'application `DOCUMENT`, voir [le manuel de référence ddui][ddui-ref-app-document]
 
