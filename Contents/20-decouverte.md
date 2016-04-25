@@ -115,11 +115,11 @@ ses éléments soient facilement adressables par CSS, facilement surchargeables 
 Nous allons exploiter cette nouvelle souplesse dans les chapitres suivants.
 
 <!-- links -->
-[ddui-ref]: ../../../dynacase-doc-document-uis-reference/website/book/
-[ddui-ref-app-document]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:f38f3995-1b3f-4b43-bacc-2516015e3ea.html#ddui-ref:f38f3995-1b3f-4b43-bacc-2516015e3ea
-[devtools-ref]: #FIXME
-[chapter_wizard]: #ddui-qs:d0e9dddc-6336-4cc9-ac82-97cd72bfd0d4
-[chapter_extra]: #ddui-qs:847a80f2-d486-4085-beb9-077a6d33df0c
-[step-20-00]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-20-00.zip
-[bootstrap]: http://getbootstrap.com/
-[kendo-ui-opensource]: http://www.telerik.com/kendo-ui/open-source-core
+[ddui-ref]:                 #ddui-ref:
+[ddui-ref-app-document]:    #ddui-ref:f38f3995-1b3f-4b43-bacc-2516015e3ea
+[devtools-ref]:             #devtools:
+[chapter_wizard]:           #ddui-qs:d0e9dddc-6336-4cc9-ac82-97cd72bfd0d4
+[chapter_extra]:            #ddui-qs:847a80f2-d486-4085-beb9-077a6d33df0c
+[step-20-00]:               https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-20-00.zip
+[bootstrap]:                http://getbootstrap.com/
+[kendo-ui-opensource]:      http://www.telerik.com/kendo-ui/open-source-core

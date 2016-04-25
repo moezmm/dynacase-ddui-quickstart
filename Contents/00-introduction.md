@@ -45,13 +45,13 @@ Enfin, si vous avez des remarques ou si vous souhaitez compléter ce tutoriel,
 nous vous invitons à nous les partager via [Github][quickstart_repo].
 
 <!-- links -->
-[anakeen_services]: http://anakeen.com/#services
-[chapter_preparation]: #ddui-qs:43ec59c9-4460-4981-81d4-ffc475843c24
-[chapter_decouverte]: #ddui-qs:240c8ae1-aa60-4e5b-a5d2-2872685b1389
-[chapter_responsive]: #ddui-qs:92f1caed-e4f6-472e-8770-eed318c3a207
-[chapter_wizard]: #ddui-qs:d0e9dddc-6336-4cc9-ac82-97cd72bfd0d4
-[chapter_integration]: #ddui-qs:18df3951-83c8-4b85-a3b1-3a10c7efc2dd
-[chapter_extra]: #ddui-qs:847a80f2-d486-4085-beb9-077a6d33df0c
-[forum_dynacase]: http://forum.dynacase.org/
-[forum_dynacase_qs]: http://forum.dynacase.org/viewforum.php?id=23
-[quickstart_repo]: https://github.com/Anakeen/dynacase-quick-start-ddui
+[anakeen_services]:     http://anakeen.com/#services
+[chapter_preparation]:  #ddui-qs:43ec59c9-4460-4981-81d4-ffc475843c24
+[chapter_decouverte]:   #ddui-qs:240c8ae1-aa60-4e5b-a5d2-2872685b1389
+[chapter_responsive]:   #ddui-qs:92f1caed-e4f6-472e-8770-eed318c3a207
+[chapter_wizard]:       #ddui-qs:d0e9dddc-6336-4cc9-ac82-97cd72bfd0d4
+[chapter_integration]:  #ddui-qs:18df3951-83c8-4b85-a3b1-3a10c7efc2dd
+[chapter_extra]:        #ddui-qs:847a80f2-d486-4085-beb9-077a6d33df0c
+[forum_dynacase]:       http://forum.dynacase.org/
+[forum_dynacase_qs]:    http://forum.dynacase.org/viewforum.php?id=23
+[quickstart_repo]:      https://github.com/Anakeen/dynacase-quick-start-ddui

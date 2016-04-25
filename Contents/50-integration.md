@@ -494,19 +494,19 @@ lorsqu'on demande l'affichage d'un document alors que le document en cours est m
 un message de confirmation est affiché.
 
 <!-- links -->
-[step-50-00]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-00.zip
-[step-50-10]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-10.zip
-[step-50-20]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-20.zip
-[step-50-30]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-30.zip
-[step-50-40]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-40.zip
-[step-50-50]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-50.zip
-[step-50-60]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-60.zip
-[step-50-70]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-70.zip
-[step-50-80]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-80.zip
-[devtools-ref]: #FIXME
-[ddui-ref_widget-events-listen]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:9ad493b6-1f05-43f6-90f0-4b1223345738.html#ddui-ref:e04afb6f-d710-41c6-98be-1d35979ac898
-[ddui-ref_widget-events-change]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:a1a7c169-6bd7-4c67-83cf-918c8793fbbe.html#ddui-ref:2405df1f-9fd0-4d42-b862-f3d5657f485d
-[ddui-ref_widget-events-afterRestore]: #FIXME
-[ddui-ref_widget-events-afterSave]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:a1a7c169-6bd7-4c67-83cf-918c8793fbbe.html#ddui-ref:968798c4-0d6e-436e-bb83-79c258eb8e4d
-[ddui-ref_widget-events-ready]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:a1a7c169-6bd7-4c67-83cf-918c8793fbbe.html#ddui-ref:ec92745b-26e0-46a5-91cc-9851ef66c30a
-[ddui-ref_widget-events-afterDelete]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:a1a7c169-6bd7-4c67-83cf-918c8793fbbe.html#ddui-ref:0c4d7fea-c4ab-4802-b757-17e2fb268795
+[step-50-00]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-00.zip
+[step-50-10]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-10.zip
+[step-50-20]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-20.zip
+[step-50-30]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-30.zip
+[step-50-40]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-40.zip
+[step-50-50]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-50.zip
+[step-50-60]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-60.zip
+[step-50-70]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-70.zip
+[step-50-80]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-80.zip
+[devtools-ref]:                         #devtools:
+[ddui-ref_widget-events-listen]:        #ddui-ref:e04afb6f-d710-41c6-98be-1d35979ac898
+[ddui-ref_widget-events-change]:        #ddui-ref:2405df1f-9fd0-4d42-b862-f3d5657f485d
+[ddui-ref_widget-events-afterRestore]:  #ddui-ref:8c0bed5f-8865-483a-8211-ee9ee80bd7ff
+[ddui-ref_widget-events-afterSave]:     #ddui-ref:968798c4-0d6e-436e-bb83-79c258eb8e4d
+[ddui-ref_widget-events-ready]:         #ddui-ref:ec92745b-26e0-46a5-91cc-9851ef66c30a
+[ddui-ref_widget-events-afterDelete]:   #ddui-ref:0c4d7fea-c4ab-4802-b757-17e2fb268795

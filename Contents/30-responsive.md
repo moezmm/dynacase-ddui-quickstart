@@ -70,8 +70,8 @@ Nous allons le compléter avec les informations suivantes :
 
 ![Contrôle de rendu](images/30-controle-rendu.png)
 
-Une fois ajouté dans le workflow de la famille Contact, exporté, et correctement ajouté au fichier
-[`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/DDUI_TUTO_CONTACT__DATA.csv`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-30-10/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/DDUI_TUTO_CONTACT__DATA.csv "Télécharger le fichier complété"),
+Une fois ajouté dans le workflow de la famille Contact pour chacun des états, exporté,
+et correctement ajouté au fichier [`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/DDUI_TUTO_CONTACT__DATA.csv`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-30-10/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/DDUI_TUTO_CONTACT__DATA.csv "Télécharger le fichier complété"),
 il peut être déployé.
 
 #### Déploiement {#ddui-qs:ac5c3a68-475f-45f7-9a9c-631101f727ab}
@@ -133,7 +133,8 @@ Les sources avant cette étape correspondent au [tag `step-30-10`][step-30-10].
 #### Code {#ddui-qs:a2538ab3-be40-4650-89ce-20db41766692}
 
 Nous devons en premier lieu injecter la nouvelle CSS dans le document en plus des CSS qu'il utilise déjà.
-Pour ce faire, ajoutons une méthode `getCssReferences` à notre classe de configuration de rendu dans le fichier
+Pour ce faire, ajoutons une méthode [`getCssReferences`][ddui_ref:getCssReferences]
+à notre classe de configuration de rendu dans le fichier
 [`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactRenderConfigView.php`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-30-20/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactRenderConfigView.php "Télécharger le fichier complété") :
 
     [PHP]
@@ -285,9 +286,9 @@ Les sources avant cette étape correspondent au [tag `step-30-20`][step-30-20].
 
 La première étape est d'indiquer le template à utiliser dans le fichier
 [`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactRenderConfigView.php`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-30-30/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactRenderConfigView.php "Télécharger le fichier complété").
-Cela se fait au moyen de la méthode `getTemplates`.
+Cela se fait au moyen de la méthode [`getTemplates`][ddui-ref:getTemplates].
 Nous allons également injecter 2 fichiers javascript, qui seront utilisés par la suite, au moyen de
-la méthode `getJsReferences`.
+la méthode [`getJsReferences`][ddui-ref:getJsReferences].
 Voici le fichier final :
 
     [php]
@@ -543,12 +544,15 @@ Dans la partie suivante, nous allons voir comment travailler avec du code Javasc
 pour personnaliser le comportement des documents.
 
 <!-- links -->
-[devtools-ref]: #FIXME
-[step-30-00]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-00.zip
-[step-30-10]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-10.zip
-[step-30-20]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-20.zip
-[step-30-30]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-30.zip
-[ddui-ref_controle-rendu]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:32923fae-57b5-4e57-b048-b7342726101c.html#ddui-ref:32923fae-57b5-4e57-b048-b7342726101c
-[ddui-ref_classe-rendu]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:3d4e2523-9e0b-45d3-aa96-4214d3668b28.html#ddui-ref:3d4e2523-9e0b-45d3-aa96-4214d3668b28
-[ddui-ref_templates]: ../../../dynacase-doc-document-uis-reference/website/book/dui-ref:5c19913d-1687-4f31-956b-f590649eb5a0.html#ddui-ref:5c19913d-1687-4f31-956b-f590649eb5a0
-[ddui-ref_variables]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:b7a684b5-03af-43a4-8b56-32c43349190f.html#ddui-ref:134bc49e-6529-4e95-8f07-6e02559c6d8f
+[devtools-ref]:                 #devtools:
+[step-30-00]:                   https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-00.zip
+[step-30-10]:                   https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-10.zip
+[step-30-20]:                   https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-20.zip
+[step-30-30]:                   https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-30.zip
+[ddui-ref_controle-rendu]:      #ddui-ref:32923fae-57b5-4e57-b048-b7342726101c
+[ddui-ref_classe-rendu]:        #ddui-ref:3d4e2523-9e0b-45d3-aa96-4214d3668b28
+[ddui-ref_templates]:           #ddui-ref:5c19913d-1687-4f31-956b-f590649eb5a0
+[ddui-ref_variables]:           #ddui-ref:134bc49e-6529-4e95-8f07-6e02559c6d8f
+[ddui_ref:getCssReferences]:    #ddui-ref:adc69358-11e1-42b7-b0ed-f91af6807758
+[ddui-ref:getTemplates]:        #ddui-ref:5c19913d-1687-4f31-956b-f590649eb5a0
+[ddui-ref:getJsReferences]:     #ddui-ref:0166b72c-f88a-4d76-b28a-a8bf93c3cb2d

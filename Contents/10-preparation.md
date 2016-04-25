@@ -74,11 +74,11 @@ Vous pouvez accéder à ce tag au moyen de git si vous avez cloné le dépot,
 ou vous pouvez télécharger directement une archive pour chaque étape depuis github via un lien.
 
 <!-- links -->
-[virtualbox-ovf]: #FIXME
-[man-inst]: http://docs.anakeen.com/dynacase/3.2/dynacase-doc-platform-operating-manual/website/book/index.html "Installation & Exploitation"
-[tuto-sources]: https://github.com/Anakeen/dynacase-ddui-quickstart-code
-[tuto-sources-releases]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/releases
-[devtools-linux]: #FIXME
-[devtools-windows]: #FIXME
-[devtools-ref]: #FIXME
-[gh_sources]: https://github.com/Anakeen/dynacase-ddui-quickstart-code
+[virtualbox-ovf]:           #FIXME
+[man-inst]:                 #manex-ref: "Installation & Exploitation"
+[tuto-sources]:             https://github.com/Anakeen/dynacase-ddui-quickstart-code
+[tuto-sources-releases]:    https://github.com/Anakeen/dynacase-ddui-quickstart-code/releases
+[devtools-linux]:           #FIXME
+[devtools-windows]:         #FIXME
+[devtools-ref]:             #devtools:
+[gh_sources]:               https://github.com/Anakeen/dynacase-ddui-quickstart
