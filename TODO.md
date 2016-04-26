@@ -11,5 +11,9 @@
     +   vérifier que les liens vers les fichiers github fonctionnent et pointent vers la bonne version
         (Nécessite que le code ait été publié sur github en public au préalable)
 -   remplacer le document d'exemple par un document plus corporate (un unique xml à remplacer, puis relancer `tag.sh`)
--   on pourrait aussi ajouter la prise en compte eds traductions, mais cela rallongerait encore le quick start.
+-   on pourrait aussi ajouter la prise en compte des traductions, mais cela rallongerait encore le quick start.
     Peut être est-ce pertinent dans la partie "pour aller plus loin" ?
+-   création et publication des images
+    +   docker
+    +   virtualbox
+-   Ajout des instructions de build et d'installation de la première version de l'appli en cas d'install manuelle
