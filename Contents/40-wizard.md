@@ -737,6 +737,9 @@ La commande est donc :
 En accédant au contact _John DOE_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE/views/!defaultEdition.html),
 nous constatons que le bandeau de navigation entre les différentes étapes est maintenant visible.
 
+<span class="flag inline nota-bene"></span> Ce bandeau n'est pas fonctionnel pour le moment.
+Les chapitres suivants feront petit à fonctionner chacun des éléments de ce bandeau.
+
 ### Partie serveur : Personnalisation du menu {#ddui-qs:ae07c2ce-3037-4215-bfb5-893814f8bc96}
 
 Les entrées de menu vont être surchargées :
