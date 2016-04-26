@@ -430,69 +430,6 @@ Depuis l'application à l'adresse [http://localhost:8080/?app=SIMPLE_LIST](http:
 immédiatement après la suppression d'un contact et que sa fiche ait été supprimée de la liste de gauche,
 il est possible de le restaurer. Sa fiche est alors ajoutée à nouveau à la liste de gauche.
 
-### Demander confirmation avant la perte d'informations non enregistrées {#ddui-qs:775b7c84-54dc-469b-89bd-cda4524eac0f}
-
-Lors de l'affichage d'un nouveau document, les modifications non enregistrées du document affiché sont perdues.
-Nous allons demander une confirmation à l'utilisateur avant la perte de ces modifications.
-
-#### Récupération des sources {#ddui-qs:14f573c9-6d29-4603-beaa-cf7acc6f7687}
-
-Les sources avant cette étape correspondent au [tag `step-50-70`][step-50-70].
-
-#### Code {#ddui-qs:0d08e1c2-a4d3-4fe4-ab30-ced599b9dc53}
-
-Mettons à jour la méthode `loadDocument` du fichier
-[`SIMPLE_LIST/Layout/custom.js`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-50-80/SIMPLE_LIST/Layout/custom.js "Télécharger le fichier complété")
-pour demander une confirmation lorsque le document affiché est modifié :
-
-    [javascript]
-    var loadDocument = function loadDocument(fetchOptions)
-    {
-        //check if the widget has already been initialised
-        if (_.isUndefined($documentWrapper.document("instance"))) {
-            //if not, initialize it
-            $documentWrapper.document(fetchOptions)
-                //and attach listeners to the newly created widget
-                .on("documentloaded", addDocumentListeners);
-        } else {
-            //if yes, reuse it
-            var properties = $documentWrapper.document("getProperties");
-    
-            if (properties.isModified) {
-                if (!confirm(
-                        'Le document ' + properties.title + ' a des modifications non sauvegardées.' +
-                        'Voulez-vous continuer et perdre ces modifications ?'
-                    )) {
-                    return;
-                }
-            }
-            $documentWrapper.document("fetchDocument", fetchOptions);
-        }
-    }
-
-#### Déploiement {#ddui-qs:29f166df-86df-475e-a989-df2115973fc3}
-
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-80`][step-50-80].
-
-Le déploiement se fait au moyen du _developer toolkit_
-(pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
-
-La commande est donc :
-
--   pour linux :
-    
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
-
--   pour windows :
-    
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
-
-#### Le résultat {#ddui-qs:ed8af3ef-9b9a-453f-8141-c446f7a6c132}
-
-Depuis l'application à l'adresse [http://localhost:8080/?app=SIMPLE_LIST](http://localhost:8080/?app=SIMPLE_LIST),
-lorsqu'on demande l'affichage d'un document alors que le document en cours est modifié,
-un message de confirmation est affiché.
-
 <!-- links -->
 [step-50-00]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-00.zip
 [step-50-10]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-10.zip
@@ -502,8 +439,7 @@ un message de confirmation est affiché.
 [step-50-50]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-50.zip
 [step-50-60]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-60.zip
 [step-50-70]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-70.zip
-[step-50-80]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-80.zip
-[devtools-ref]:                         #devtools:
+[devtools-ref]:                         devtools:
 [ddui-ref_widget-events-listen]:        #ddui-ref:e04afb6f-d710-41c6-98be-1d35979ac898
 [ddui-ref_widget-events-change]:        #ddui-ref:2405df1f-9fd0-4d42-b862-f3d5657f485d
 [ddui-ref_widget-events-afterRestore]:  #ddui-ref:8c0bed5f-8865-483a-8211-ee9ee80bd7ff

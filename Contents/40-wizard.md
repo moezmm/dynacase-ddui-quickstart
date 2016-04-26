@@ -1074,11 +1074,6 @@ par l'ajout d'un écouteur `actionClick.wizard.contact` dans le fichier
     
             switch (options.eventId) {
                 case 'wizard.cancel':
-                    if(documentObject.isModified) {
-                        if(!window.confirm("The document has been modified. Do you want to continue and lose all changes?")) {
-                            break;
-                        }
-                    }
                     this.documentController(
                         "reinitDocument",
                         {
@@ -1161,12 +1156,6 @@ Cet événement sera capturé par l'ajout d'un écouteur `actionClick.wizard.con
                 currentWizardStepName = null;
     
             event.preventDefault();
-    
-            if (this.documentController("getProperties").isModified) {
-                if (!window.confirm("The document has been modified. Do you want to continue and lose all changes?")) {
-                    return;
-                }
-            }
     
             if (customServerData && customServerData.wizardInfos && customServerData.wizardInfos.currentStep) {
                 currentWizardStepName = customServerData.wizardInfos.currentStep.cv_idview;
@@ -1315,11 +1304,6 @@ du contrôleur de document :
     
             switch (options.eventId) {
                 case 'wizard.cancel':
-                    if(documentObject.isModified) {
-                        if(!window.confirm("The document has been modified. Do you want to continue and lose all changes?")) {
-                            break;
-                        }
-                    }
                     this.documentController(
                         "reinitDocument",
                         {
