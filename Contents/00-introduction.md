@@ -21,6 +21,31 @@ ce tutoriel est organisé en 5 chapitres principaux :
 -   [Conception d'un assistant avec Dynacase Document UIs][chapter_wizard]
 -   [Intégration d'un document Dynacase Document UIs dans une interface riche][chapter_integration]
 
+Chaque partie (et ses sous-parties) s'organisent de la même manière :
+
+-   Présentation des objectifs
+-   Présentation succincte des moyens d'atteindre cet objectif avec Dynacase Document UIS
+-   Lien vers les sources correspondantes
+
+## Suivi du tutoriel {#ddui-qs:bdfa35c7-92b6-4caa-a218-701fb4352294}
+
+Vous pouvez suivre ce tutoriel de 2 manières différentes :
+
+-   comme une visite guidée :
+    
+    Regardez les moyens mis en œuvre pour chaque besoin, mais n'écrivez pas le code,
+    regardez les interfaces correspondantes, mais ne créez pas les documents.
+    
+    <span class="flag inline nota-bene"></span> Cette approche vous donne une vue d'ensemble
+    des possibilités offertes par Dynacase Document UIS en 1 journée.
+
+-   comme une mini-formation :
+    
+    Chaque présentation des moyens d'atteindre l'objectif fait des liens vers les manuels de référence utiles.
+    Vous pouvez suivre ces liens, et tenter de développer tout ou partie du code correspondant.
+    
+    <span class="flag inline nota-bene"></span> Cette approche est plus longue.
+
 Au terme de ce tutoriel, vous connaîtrez les principales fonctionnalités de Dynacase Document UIs.
 
 Vous serez également en mesure d'explorer plus en détails les possibilités offertes par Dynacase Document UIs,
