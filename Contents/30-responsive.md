@@ -364,9 +364,10 @@ est le suivant :
             <div class="dc__summary">
                 <div class="media">
                     <div class="media-left media-middle">
-                        <img src="{{document.attributes.dc_photo.attributeValue.url}}&width=150" />
+                        <img src="{{document.attributes.dc_photo.attributeValue.url}}&width=150"
+                             alt="Pas de photo de contact">
                     </div>
-    
+                    
                     <div class="media-body">
                         <div class="media">
                             <div class="media-body">
@@ -375,7 +376,8 @@ est le suivant :
                                 </h1>
                             </div>
                             <div class="media-right media-middle">
-                                <img src="{{{document.attributes.dc_logo.attributeValue.thumbnail}}}">
+                                <img src="{{{document.attributes.dc_logo.attributeValue.thumbnail}}}"
+                                     alt="pas de logo de la société">
                             </div>
                         </div>
                         {{{document.attributes.dc_civility.attributeValue.displayValue}}}
@@ -383,16 +385,14 @@ est le suivant :
                             {{{document.attributes.dc_firstname.attributeValue.displayValue}}}
                             {{{document.attributes.dc_lastname.attributeValue.displayValue}}}
                         </h2>
-    
-                        {{{document.attributes.dc_service.attributeValue.displayValue}}}
-                        ({{{document.attributes.dc_role.attributeValue.displayValue}}})
+                        
+                        {{{document.attributes.dc_service.attributeValue.displayValue}}}&nbsp;({{{document.attributes.dc_role.attributeValue.displayValue}}})
                     </div>
                 </div>
             </div>
             <div id="qrcontainer" class="dc__qrCode"></div>
         </div>
-    
-    
+        
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingMore">
                 <h3 class="panel-title">
@@ -403,7 +403,7 @@ est le suivant :
                 </h3>
             </div>
             <div id="collapseMore" class="panel-collapse collapse"
-                role="tabpanel" aria-labelledby="headingMore">
+                 role="tabpanel" aria-labelledby="headingMore">
                 <div class="panel-body">
                     <div class="row dc__coord">
                         <div class="col-sm-4">
@@ -474,7 +474,7 @@ Enfin, ce template s'accompagne de CSS. Nous allons donc réécrire le fichier
         width: auto;
     }
     
-    label.dcpAttribute__label {
+    .dcpAttribute__label {
         display:none;
     }
     
