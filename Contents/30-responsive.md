@@ -89,6 +89,14 @@ Le déploiement se fait au moyen du _developer toolkit_
     
         dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
 
+<span class="flag inline nota-bene"></span> Puisque le contrôle de rendu a été associé au cycle de vie
+après la création du document que nous manipulons, il n'est pas associé automatiquement.
+Il faudrait soit écrire un script de migration, soit créer un nouveau document.
+Pour plus de simplicité, nous avons intégré une méthode à notre document pour refaire l'association.
+
+il suffit de se connecter à l'adresse
+[http://localhost:8080/?app=FDL&action=FDL_METHOD&id=CONTACT_JOHN_DOE&method=updateCR](http://localhost:8080/?app=FDL&action=FDL_METHOD&id=CONTACT_JOHN_DOE&method=updateCR)
+
 #### Le résultat {#ddui-qs:84d478b7-c22f-4184-808b-2da2229d2f55}
 
 En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html),
