@@ -350,7 +350,7 @@ Voici le fichier final :
         }
     }
 
-Nous pouvons maintenant définir notre template. ce template utilisera des variables mustache
+Nous pouvons maintenant définir notre template. Ce template utilisera des variables mustache
 pour récupérer les valeurs du document.
 Ces variables sont présentées dans le [manuel de référence][ddui-ref_variables].
 

@@ -3,28 +3,28 @@
 ## Principe {#ddui-qs:d4a896b1-6100-4bbd-a1b7-b8ca670c1dc6}
 
 Le wizard permet de découper la saisie du document en plusieurs étapes.
-Chaque étape définira un ensemble de conditions pour pouvoir passer à l'étape suivante.
+Chaque étape définit un ensemble de conditions pour pouvoir passer à l'étape suivante.
 
-Chaque étape sera implémentée au moyen d'une vue, accompagnée d'un masque.
-Ces vues seront pilotées au moyen d'un [contrôle de rendu][ddui-ref_controle-rendu],
+Chaque étape est implémentée au moyen d'une vue, accompagnée d'un masque.
+Ces vues sont pilotées au moyen d'un [contrôle de rendu][ddui-ref_controle-rendu],
 et d'une [classe d'accès à un rendu][ddui-ref_renderaccessclass].
 
-La dernière étape atteinte sera mémorisée dans un paramètre applicatif du document.
+La dernière étape atteinte est mémorisée dans un paramètre applicatif du document.
 
-La partie serveur sélectionnera la vue en se basant sur les informations envoyées par le client
+La partie serveur sélectionne la vue en se basant sur les informations envoyées par le client
 au moyen des [`customClientData`][ddui-ref_customClientData].
 
-Pendant le wizard, le document sera à l'état `Création`.
+Pendant le wizard, le document est à l'état `Création`.
 
-À la fin du wizard, le document sera passé à l'état `À jour`.
+À la fin du wizard, le document est passé à l'état `À jour`.
 
-L'état `Création` ne sera plus accessible après achèvement du wizard.
+L'état `Création` n'est plus accessible après achèvement du wizard.
 
-Voici à quoi ressemblera le document pendant le wizard :
+Voici à quoi ressemble le document pendant le wizard :
 
 ![Wizard](40-wizard.png)
 
-Les étapes seront les suivantes :
+Les étapes sont les suivantes :
 
 -   Identité
 -   Professionnel
@@ -48,12 +48,12 @@ Les sources avant cette étape correspondent au [tag `step-40-00`][step-40-00].
 
 #### Code {#ddui-qs:dc1398f3-e752-458b-a391-ede6fa38baac}
 
-Chaque vue sera composée de :
+Chaque vue est composée de :
 
 -   un masque de saisie,
 -   une [classe de rendu][ddui-ref_classe-rendu],
 
-De plus, le contrôle de rendu sera associé à une [classe d'accès à un rendu][ddui-ref_renderaccessclass].
+De plus, le contrôle de rendu est associé à une [classe d'accès à un rendu][ddui-ref_renderaccessclass].
 
 Ces éléments doivent donc être initialisés avant création du contrôle de rendu.
 
@@ -289,7 +289,7 @@ En effet, en l'absence de données du client, la première vue est sélectionné
 
 ### Partie serveur : mise en place du header {#ddui-qs:e8c8da50-268a-4cbb-9707-7c4deb90d6d2}
 
-Le menu va être surchargé au moyen d'un template personnalisé
+Le menu est surchargé au moyen d'un template personnalisé
 pour afficher les différentes étapes du wizard au dessus du menu.
 
 #### Récupération des sources {#ddui-qs:976b1bbc-e387-43be-a343-342236feaa58}
@@ -1087,22 +1087,21 @@ du contrôleur de document :
                         {
                             customClientData: {
                                 currentWizardStepName: currentWizardStepName
-                            },
-                            success: function wizardEnd_changeState() {
-                                window.dcp.document.documentController(
-                                    "changeStateDocument",
-                                    {
-                                        "nextState": "ctc_e2",
-                                        "transition": "ctc_t_e1__e2"
-                                    },
-                                    {
-                                        viewId: '!defaultConsultation',
-                                        revision: -1
-                                    }
-                                );
                             }
+                    ).then(function wizardEnd_changeState() {
+                        window.dcp.document.documentController(
+                            "changeStateDocument",
+                            {
+                                "nextState": "ctc_e2",
+                                "transition": "ctc_t_e1__e2"
+                            },
+                            {
+                                viewId: '!defaultConsultation',
+                                revision: -1
+                            }
+                        );
                         }
-                    );
+                    });
                     break;
                 default:
                     return;

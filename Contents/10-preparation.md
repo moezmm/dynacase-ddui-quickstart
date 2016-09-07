@@ -8,7 +8,7 @@ Ce contexte peut être obtenu de 3 manières différentes.
 
 ### Docker {#ddui-qs:c5bf3d74-66a2-4b3a-aa42-ba0d4f0851d3}
 
-Une environnement docker est disponible sur docker hub.
+Un environnement docker est disponible sur docker hub.
 Il peut être initialisé au moyen de la commande
 
     docker create --name ddui-tuto -p 8080:80 Anakeen/ddui-tuto
@@ -78,7 +78,7 @@ ou vous pouvez télécharger directement une archive pour chaque étape depuis g
 [man-inst]:                 #manex-ref: "Installation & Exploitation"
 [tuto-sources]:             https://github.com/Anakeen/dynacase-ddui-quickstart-code
 [tuto-sources-releases]:    https://github.com/Anakeen/dynacase-ddui-quickstart-code/releases
-[devtools-linux]:           #FIXME
-[devtools-windows]:         #FIXME
+[devtools-linux]:           https://github.com/Anakeen/development-tools/raw/3.2/dynacase-devtool.phar
+[devtools-windows]:         https://github.com/Anakeen/development-tools/raw/3.2/dynacase-devtool-win32.zip
 [devtools-ref]:             #devtools:
-[gh_sources]:               https://github.com/Anakeen/dynacase-ddui-quickstart
+[gh_sources]:               https://github.com/Anakeen/dynacase-ddui-quickstart-code

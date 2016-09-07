@@ -19,5 +19,3 @@ book:
           content:  "40-wizard.md"
         - level:   1
           content:  "50-integration.md"
-        - level:   1
-          content:  "60-extra.md"
