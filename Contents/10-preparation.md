@@ -6,33 +6,12 @@ Pour dérouler ce tutoriel, il est nécessaire d'avoir un contexte dynacase.
 
 Ce contexte peut être obtenu de 3 manières différentes.
 
-### Docker {#ddui-qs:c5bf3d74-66a2-4b3a-aa42-ba0d4f0851d3}
-
-Un environnement docker est disponible sur docker hub.
-Il peut être initialisé au moyen de la commande
-
-    docker create --name ddui-tuto -p 8080:80 Anakeen/ddui-tuto
-
-<span class="flag inline nota-bene"></span> Cette commande mappe le port 80 du container sur le port 8080 de l'hôte.
-
-Il peut ensuite être lancé au moyen de la commande
-
-    docker start ddui-tuto
-
-et arrêté au moyen de la commande
-
-    docker stop ddui-tuto
-
-FIXME: créer l'image et la déposer sur docker hub
-
 ### Virtualbox {#ddui-qs:2e9ea755-7177-407f-9f79-d9f7e39cacd5}
 
-Une appliance virtualbox est disponible [sur notre site][virtualbox-ovf].
+Une appliance virtualbox est disponible [sur notre site][virtualbox-appliances] : `dynacase-quick-start-ddui_debian-8.5.0-amd64-2016-09-15.ova`.
 Il suffit de l'importer et de la démarrer.
 
 <span class="flag inline nota-bene"></span> L'appliance mappe le port 80 de l'invité sur le port 8080 de l'hôte.
-
-FIXME: créer l'appliance
 
 ### Autre {#ddui-qs:7351b98e-5b10-46ed-a120-e165cba71d99}
 
@@ -74,11 +53,11 @@ Vous pouvez accéder à ce tag au moyen de git si vous avez cloné le dépot,
 ou vous pouvez télécharger directement une archive pour chaque étape depuis github via un lien.
 
 <!-- links -->
-[virtualbox-ovf]:           #FIXME
+[virtualbox-appliances]:           http://eec.anakeen.com/public/tools/appliances/
 [man-inst]:                 #manex-ref: "Installation & Exploitation"
 [tuto-sources]:             https://github.com/Anakeen/dynacase-ddui-quickstart-code
 [tuto-sources-releases]:    https://github.com/Anakeen/dynacase-ddui-quickstart-code/releases
-[devtools-linux]:           https://github.com/Anakeen/development-tools/raw/3.2/dynacase-devtool.phar
-[devtools-windows]:         https://github.com/Anakeen/development-tools/raw/3.2/dynacase-devtool-win32.zip
+[devtools-linux]:           https://eec.anakeen.com/public/tools/development/dynacase-devtool.phar
+[devtools-windows]:         https://eec.anakeen.com/public/tools/development/dynacase-devtool-win32.zip
 [devtools-ref]:             #devtools:
 [gh_sources]:               https://github.com/Anakeen/dynacase-ddui-quickstart-code
