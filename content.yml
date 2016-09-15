@@ -1,6 +1,6 @@
 book:
     title: "Quick Start"
-    module: "Dynacase Document UI"
+    module: "Document User Interface"
     githubsrc: "https://github.com/Anakeen/dynacase-quick-start-ddui"
     id_prefix: "ddui-qs"
     collapse_code: 15
@@ -19,5 +19,3 @@ book:
           content:  "40-wizard.md"
         - level:   1
           content:  "50-integration.md"
-        - level:   1
-          content:  "60-extra.md"

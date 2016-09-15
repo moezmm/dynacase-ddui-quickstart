@@ -25,7 +25,7 @@ Nous allons écouter cet événement et afficher le document dans la zone `.docu
 
 #### Récupération des sources {#ddui-qs:62e098d5-2992-493a-8453-d531ab51f918}
 
-Les sources avant cette étapes correspondent au [tag `step-50-00`][step-50-00].
+Les sources avant cette étape correspondent au [tag `step-50-00`][step-50-00].
 
 #### Code {#ddui-qs:3769b0cc-7988-4641-8dd2-94821ddf70b9}
 
@@ -79,7 +79,7 @@ pour signaler à l'application que ce document est affiché.
 
 #### Déploiement {#ddui-qs:53810925-0ca9-4247-832e-240de38546c8}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-10`][step-50-10]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-10`][step-50-10].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -105,7 +105,7 @@ Nous allons réagir à l'événement [`change`][ddui-ref_widget-events-change] d
 
 #### Récupération des sources {#ddui-qs:ad0319c7-49c1-4eff-bc7a-d62fdeb576c6}
 
-Les sources avant cette étapes correspondent au [tag `step-50-10`][step-50-10].
+Les sources avant cette étape correspondent au [tag `step-50-10`][step-50-10].
 
 #### Code {#ddui-qs:c72d0097-d1f3-4587-9fc7-049c2c2e979f}
 
@@ -129,13 +129,13 @@ pour signaler à l'application que ce document est modifié :
     );
 
 <span class="flag inline nota-bene"></span> Ici, nous nous contentons de déclencher l'événement en charge de la mise à
-jour de l'application. le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
+jour de l'application. Le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
 présenté. Il est néanmoins accessible dans le code source dans le fichier
 [`SIMPLE_LIST/Layout/main.js`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-00-00/SIMPLE_LIST/Layout/main.js "voir le fichier sur github").
 
 #### Déploiement {#ddui-qs:dc86d2e9-bf2f-4ef0-8205-5e07228efbc0}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-20`][step-50-20]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-20`][step-50-20].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -162,7 +162,7 @@ Nous allons réagir à l'événement [`afterSave`][ddui-ref_widget-events-afterS
 
 #### Récupération des sources {#ddui-qs:a02ceeef-5d48-462c-be16-b4a6f7f23acf}
 
-Les sources avant cette étapes correspondent au [tag `step-50-20`][step-50-20].
+Les sources avant cette étape correspondent au [tag `step-50-20`][step-50-20].
 
 #### Code {#ddui-qs:c540c97e-9ffb-41df-997c-65d4af0f0aad}
 
@@ -186,13 +186,13 @@ pour signaler à l'application que ce document a été sauvegardé :
     );
 
 <span class="flag inline nota-bene"></span> Ici, nous nous contentons de déclencher l'événement en charge de la mise à
-jour de l'application. le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
+jour de l'application. Le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
 présenté. Il est néanmoins accessible dans le code source dans le fichier
 [`SIMPLE_LIST/Layout/main.js`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-00-00/SIMPLE_LIST/Layout/main.js "voir le fichier sur github").
 
 #### Déploiement {#ddui-qs:65a3f452-ee38-4441-bc41-cd622f51e62e}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-30`][step-50-30]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-30`][step-50-30].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -220,7 +220,7 @@ Lors du clic sur le bouton `Nouveau Contact`, l'application déclenche un évén
 
 #### Récupération des sources {#ddui-qs:ec65e108-b97e-4520-9f3f-43fe9e74f7c1}
 
-Les sources avant cette étapes correspondent au [tag `step-50-30`][step-50-30].
+Les sources avant cette étape correspondent au [tag `step-50-30`][step-50-30].
 
 #### Code {#ddui-qs:b9bef7f7-df14-4599-9f6e-17e16bd1a3b2}
 
@@ -239,7 +239,7 @@ ajoutons un écouteur de l'événement `buttonCreateClicked`, qui charge l'inter
 
 #### Déploiement {#ddui-qs:83501cab-9222-47d7-87e2-66428c7d72a2}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-40`][step-50-40]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-40`][step-50-40].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -267,7 +267,7 @@ et signaler une création à l'interface dans le cas où le document n'avait pas
 
 #### Récupération des sources {#ddui-qs:983ae717-149b-4ffe-80c7-9f61764a5b2b}
 
-Les sources avant cette étapes correspondent au [tag `step-50-40`][step-50-40].
+Les sources avant cette étape correspondent au [tag `step-50-40`][step-50-40].
 
 #### Code {#ddui-qs:31efccb7-3fd3-4fef-92e0-ef8dcacc4bdd}
 
@@ -297,7 +297,7 @@ dans la méthode `addDocumentListeners` du fichier
 
 #### Déploiement {#ddui-qs:222252c9-0754-4705-a83e-582bb7edf86b}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-50`][step-50-50]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-50`][step-50-50].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -323,7 +323,7 @@ Nous allons réagir à l'événement [`afterDelete`][ddui-ref_widget-events-afte
 
 #### Récupération des sources {#ddui-qs:155d7e4d-93c3-4aff-9430-7549a0453636}
 
-Les sources avant cette étapes correspondent au [tag `step-50-50`][step-50-50].
+Les sources avant cette étape correspondent au [tag `step-50-50`][step-50-50].
 
 #### Code {#ddui-qs:bb39bcd9-ca27-4484-85b6-bb3983e31ae6}
 
@@ -347,13 +347,13 @@ pour signaler à l'application que ce document a été supprimé:
     );
 
 <span class="flag inline nota-bene"></span> Ici, nous nous contentons de déclencher l'événement en charge de la mise à
-jour de l'application. le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
+jour de l'application. Le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
 présenté. Il est néanmoins accessible dans le code source dans le fichier
 [`SIMPLE_LIST/Layout/main.js`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-00-00/SIMPLE_LIST/Layout/main.js "voir le fichier sur github").
 
 #### Déploiement {#ddui-qs:ba8ce5db-22f2-4585-95ac-6c9b160c1f80}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-60`][step-50-60]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-60`][step-50-60].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -379,7 +379,7 @@ Nous allons réagir à l'événement [`afterRestore`][ddui-ref_widget-events-aft
 
 #### Récupération des sources {#ddui-qs:45e1cdee-cc73-420c-9cfd-19dec2de0a25}
 
-Les sources avant cette étapes correspondent au [tag `step-50-60`][step-50-60].
+Les sources avant cette étape correspondent au [tag `step-50-60`][step-50-60].
 
 #### Code {#ddui-qs:2e8d05fb-e6ca-4bc8-ada7-d1f2d9cdd004}
 
@@ -403,13 +403,13 @@ pour signaler à l'application que ce document a été restauré :
     )
 
 <span class="flag inline nota-bene"></span> Ici, nous nous contentons de déclencher l'événement en charge de la mise à
-jour de l'application. le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
+jour de l'application. Le comportement de l'application étant en dehors du scope de ce tutoriel, son contenu n'est pas
 présenté. Il est néanmoins accessible dans le code source dans le fichier
 [`SIMPLE_LIST/Layout/main.js`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-00-00/SIMPLE_LIST/Layout/main.js "voir le fichier sur github").
 
 #### Déploiement {#ddui-qs:a5720ea9-da15-40d6-8a31-87d8b3ac5146}
 
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-70`][step-50-70]
+Les sources telles que déployées à cette étape correspondent au [tag `step-50-70`][step-50-70].
 
 Le déploiement se fait au moyen du _developer toolkit_
 (pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
@@ -430,82 +430,19 @@ Depuis l'application à l'adresse [http://localhost:8080/?app=SIMPLE_LIST](http:
 immédiatement après la suppression d'un contact et que sa fiche ait été supprimée de la liste de gauche,
 il est possible de le restaurer. Sa fiche est alors ajoutée à nouveau à la liste de gauche.
 
-### Demander confirmation avant la perte d'informations non enregistrées {#ddui-qs:775b7c84-54dc-469b-89bd-cda4524eac0f}
-
-Lors de l'affichage d'un nouveau document, les modifications non enregistrées du document affiché sont perdues.
-Nous allons demander une confirmation à l'utilisateur avant la perte de ces modifications.
-
-#### Récupération des sources {#ddui-qs:14f573c9-6d29-4603-beaa-cf7acc6f7687}
-
-Les sources avant cette étapes correspondent au [tag `step-50-70`][step-50-70].
-
-#### Code {#ddui-qs:0d08e1c2-a4d3-4fe4-ab30-ced599b9dc53}
-
-Mettons à jour la méthode `loadDocument` du fichier
-[`SIMPLE_LIST/Layout/custom.js`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-50-80/SIMPLE_LIST/Layout/custom.js "Télécharger le fichier complété")
-pour demander une confirmation lorsque le document affiché est modifié :
-
-    [javascript]
-    var loadDocument = function loadDocument(fetchOptions)
-    {
-        //check if the widget has already been initialised
-        if (_.isUndefined($documentWrapper.document("instance"))) {
-            //if not, initialize it
-            $documentWrapper.document(fetchOptions)
-                //and attach listeners to the newly created widget
-                .on("documentloaded", addDocumentListeners);
-        } else {
-            //if yes, reuse it
-            var properties = $documentWrapper.document("getProperties");
-    
-            if (properties.isModified) {
-                if (!confirm(
-                        'Le document ' + properties.title + ' a des modifications non sauvegardées.' +
-                        'Voulez-vous continuer et perdre ces modifications ?'
-                    )) {
-                    return;
-                }
-            }
-            $documentWrapper.document("fetchDocument", fetchOptions);
-        }
-    }
-
-#### Déploiement {#ddui-qs:29f166df-86df-475e-a989-df2115973fc3}
-
-Les sources telles que déployées à cette étape correspondent au [tag `step-50-80`][step-50-80]
-
-Le déploiement se fait au moyen du _developer toolkit_
-(pour plus d'explications sur les outils de développement, se rendre sur [leur documentation][devtools-ref]).
-
-La commande est donc :
-
--   pour linux :
-    
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
-
--   pour windows :
-    
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
-
-#### Le résultat {#ddui-qs:ed8af3ef-9b9a-453f-8141-c446f7a6c132}
-
-Depuis l'application à l'adresse [http://localhost:8080/?app=SIMPLE_LIST](http://localhost:8080/?app=SIMPLE_LIST),
-lorsqu'on demande l'affichage d'un document alors que le document en cours est modifié,
-un message de confirmation est affiché.
-
 <!-- links -->
-[step-50-00]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-00.zip
-[step-50-10]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-10.zip
-[step-50-20]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-20.zip
-[step-50-30]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-30.zip
-[step-50-40]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-40.zip
-[step-50-50]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-50.zip
-[step-50-60]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-60.zip
-[step-50-70]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-70.zip
-[devtools-ref]: #FIXME
-[ddui-ref_widget-events-listen]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:9ad493b6-1f05-43f6-90f0-4b1223345738.html#ddui-ref:e04afb6f-d710-41c6-98be-1d35979ac898
-[ddui-ref_widget-events-change]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:a1a7c169-6bd7-4c67-83cf-918c8793fbbe.html#ddui-ref:2405df1f-9fd0-4d42-b862-f3d5657f485d
-[ddui-ref_widget-events-afterRestore]: #FIXME
-[ddui-ref_widget-events-afterSave]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:a1a7c169-6bd7-4c67-83cf-918c8793fbbe.html#ddui-ref:968798c4-0d6e-436e-bb83-79c258eb8e4d
-[ddui-ref_widget-events-ready]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:a1a7c169-6bd7-4c67-83cf-918c8793fbbe.html#ddui-ref:ec92745b-26e0-46a5-91cc-9851ef66c30a
-[ddui-ref_widget-events-afterDelete]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:a1a7c169-6bd7-4c67-83cf-918c8793fbbe.html#ddui-ref:0c4d7fea-c4ab-4802-b757-17e2fb268795
+[step-50-00]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-00.zip
+[step-50-10]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-10.zip
+[step-50-20]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-20.zip
+[step-50-30]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-30.zip
+[step-50-40]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-40.zip
+[step-50-50]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-50.zip
+[step-50-60]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-60.zip
+[step-50-70]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-70.zip
+[devtools-ref]:                         devtools:
+[ddui-ref_widget-events-listen]:        #ddui-ref:e04afb6f-d710-41c6-98be-1d35979ac898
+[ddui-ref_widget-events-change]:        #ddui-ref:2405df1f-9fd0-4d42-b862-f3d5657f485d
+[ddui-ref_widget-events-afterRestore]:  #ddui-ref:8c0bed5f-8865-483a-8211-ee9ee80bd7ff
+[ddui-ref_widget-events-afterSave]:     #ddui-ref:968798c4-0d6e-436e-bb83-79c258eb8e4d
+[ddui-ref_widget-events-ready]:         #ddui-ref:ec92745b-26e0-46a5-91cc-9851ef66c30a
+[ddui-ref_widget-events-afterDelete]:   #ddui-ref:0c4d7fea-c4ab-4802-b757-17e2fb268795

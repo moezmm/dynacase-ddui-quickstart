@@ -30,7 +30,7 @@ Pour rappel, le contrôle de rendu se manipule de la même manière que le contr
 
 #### Récupération des sources {#ddui-qs:9d17f619-f5db-4a78-83ec-50cda72ff6aa}
 
-Les sources avant cette étapes correspondent au [tag `step-30-00`][step-30-00].
+Les sources avant cette étape correspondent au [tag `step-30-00`][step-30-00].
 
 #### Paramétrage {#ddui-qs:fff4857a-08a8-4221-9098-fc99072681c0}
 
@@ -70,8 +70,8 @@ Nous allons le compléter avec les informations suivantes :
 
 ![Contrôle de rendu](images/30-controle-rendu.png)
 
-Une fois ajouté dans le workflow de la famille Contact, exporté, et correctement ajouté au fichier
-[`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/DDUI_TUTO_CONTACT__DATA.csv`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-30-10/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/DDUI_TUTO_CONTACT__DATA.csv "Télécharger le fichier complété"),
+Une fois ajouté dans le workflow de la famille Contact pour chacun des états, exporté,
+et correctement ajouté au fichier [`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/DDUI_TUTO_CONTACT__DATA.csv`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-30-10/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/DDUI_TUTO_CONTACT__DATA.csv "Télécharger le fichier complété"),
 il peut être déployé.
 
 #### Déploiement {#ddui-qs:ac5c3a68-475f-45f7-9a9c-631101f727ab}
@@ -89,9 +89,17 @@ Le déploiement se fait au moyen du _developer toolkit_
     
         dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
 
+<span class="flag inline nota-bene"></span> Puisque le contrôle de rendu a été associé au cycle de vie
+après la création du document que nous manipulons, il n'est pas associé automatiquement.
+Il faudrait soit écrire un script de migration, soit créer un nouveau document.
+Pour plus de simplicité, nous avons intégré une méthode à notre document pour refaire l'association.
+
+il suffit de se connecter à l'adresse
+[http://localhost:8080/?app=FDL&action=FDL_METHOD&id=CONTACT_JOHN_DOE&method=updateCR](http://localhost:8080/?app=FDL&action=FDL_METHOD&id=CONTACT_JOHN_DOE&method=updateCR)
+
 #### Le résultat {#ddui-qs:84d478b7-c22f-4184-808b-2da2229d2f55}
 
-En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE),
+En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html),
 aucun changement n'est perceptible.
 En effet, nous avons juste mis en place les points d'entrée pour nos personnalisation à venir.
 
@@ -128,12 +136,13 @@ Soit, en images :
 
 #### Récupération des sources {#ddui-qs:48d53f72-b22a-4db9-b0d2-a2732e236a39}
 
-Les sources avant cette étapes correspondent au [tag `step-30-10`][step-30-10].
+Les sources avant cette étape correspondent au [tag `step-30-10`][step-30-10].
 
 #### Code {#ddui-qs:a2538ab3-be40-4650-89ce-20db41766692}
 
 Nous devons en premier lieu injecter la nouvelle CSS dans le document en plus des CSS qu'il utilise déjà.
-Pour ce faire, ajoutons une méthode `getCssReferences` à notre classe de configuration de rendu dans le fichier
+Pour ce faire, ajoutons une méthode [`getCssReferences`][ddui_ref:getCssReferences]
+à notre classe de configuration de rendu dans le fichier
 [`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactRenderConfigView.php`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-30-20/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactRenderConfigView.php "Télécharger le fichier complété") :
 
     [PHP]
@@ -261,7 +270,7 @@ Le déploiement se fait au moyen du _developer toolkit_
 
 #### Le résultat {#ddui-qs:772de2b3-2c8a-4a60-80a5-b1f7b131c554}
 
-En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE),
+En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html),
 on constate bien que les éléments sont réorganisés en fonction de la résolution.
 
 ### Utilisation des templates {#ddui-qs:05b15596-6671-4ff1-ba3a-c904a6e91d2d}
@@ -279,15 +288,15 @@ Nous allons définir un template qui surcharge l'intégralité du corps du docum
 
 #### Récupération des sources {#ddui-qs:b44968b5-6469-4bce-8563-17bf8649ca67}
 
-Les sources avant cette étapes correspondent au [tag `step-30-20`][step-30-20].
+Les sources avant cette étape correspondent au [tag `step-30-20`][step-30-20].
 
 #### Code {#ddui-qs:cd338260-f74e-4b8c-b319-c9bd6599c606}
 
 La première étape est d'indiquer le template à utiliser dans le fichier
 [`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactRenderConfigView.php`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-30-30/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactRenderConfigView.php "Télécharger le fichier complété").
-Cela se fait au moyen de la méthode `getTemplates`.
+Cela se fait au moyen de la méthode [`getTemplates`][ddui-ref:getTemplates].
 Nous allons également injecter 2 fichiers javascript, qui seront utilisés par la suite, au moyen de
-la méthode `getJsReferences`.
+la méthode [`getJsReferences`][ddui-ref:getJsReferences].
 Voici le fichier final :
 
     [php]
@@ -315,11 +324,11 @@ Voici le fichier final :
             $jsReferences = parent::getJsReferences();
     
             $jsReferences["bootstrap_collapse"]
-                = "../lib/bootstrap/3/js/collapse.js?ws="
+                = "lib/bootstrap/3/js/collapse.js?ws="
                 . $version;
     
             $jsReferences["jsqr"]
-                = "../lib/jsqr/jsqr-1.0.2-min.js?ws="
+                = "lib/jsqr/jsqr-1.0.2-min.js?ws="
                 . $version;
     
             return $jsReferences;
@@ -341,7 +350,7 @@ Voici le fichier final :
         }
     }
 
-Nous pouvons maintenant définir notre template. ce template utilisera des variables mustache
+Nous pouvons maintenant définir notre template. Ce template utilisera des variables mustache
 pour récupérer les valeurs du document.
 Ces variables sont présentées dans le [manuel de référence][ddui-ref_variables].
 
@@ -355,9 +364,10 @@ est le suivant :
             <div class="dc__summary">
                 <div class="media">
                     <div class="media-left media-middle">
-                        <img src="{{document.attributes.dc_photo.attributeValue.url}}&width=150" />
+                        <img src="{{document.attributes.dc_photo.attributeValue.url}}&width=150"
+                             alt="Pas de photo de contact">
                     </div>
-    
+                    
                     <div class="media-body">
                         <div class="media">
                             <div class="media-body">
@@ -366,7 +376,8 @@ est le suivant :
                                 </h1>
                             </div>
                             <div class="media-right media-middle">
-                                <img src="{{{document.attributes.dc_logo.attributeValue.thumbnail}}}">
+                                <img src="{{{document.attributes.dc_logo.attributeValue.thumbnail}}}"
+                                     alt="pas de logo de la société">
                             </div>
                         </div>
                         {{{document.attributes.dc_civility.attributeValue.displayValue}}}
@@ -374,16 +385,14 @@ est le suivant :
                             {{{document.attributes.dc_firstname.attributeValue.displayValue}}}
                             {{{document.attributes.dc_lastname.attributeValue.displayValue}}}
                         </h2>
-    
-                        {{{document.attributes.dc_service.attributeValue.displayValue}}}
-                        ({{{document.attributes.dc_role.attributeValue.displayValue}}})
+                        
+                        {{{document.attributes.dc_service.attributeValue.displayValue}}}&nbsp;({{{document.attributes.dc_role.attributeValue.displayValue}}})
                     </div>
                 </div>
             </div>
             <div id="qrcontainer" class="dc__qrCode"></div>
         </div>
-    
-    
+        
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingMore">
                 <h3 class="panel-title">
@@ -394,7 +403,7 @@ est le suivant :
                 </h3>
             </div>
             <div id="collapseMore" class="panel-collapse collapse"
-                role="tabpanel" aria-labelledby="headingMore">
+                 role="tabpanel" aria-labelledby="headingMore">
                 <div class="panel-body">
                     <div class="row dc__coord">
                         <div class="col-sm-4">
@@ -465,7 +474,7 @@ Enfin, ce template s'accompagne de CSS. Nous allons donc réécrire le fichier
         width: auto;
     }
     
-    label.dcpAttribute__label {
+    .dcpAttribute__label {
         display:none;
     }
     
@@ -526,7 +535,7 @@ Le déploiement se fait au moyen du _developer toolkit_
 
 #### Le résultat {#ddui-qs:dd54a044-6ae9-42c3-95d7-24aba3386c47}
 
-En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE),
+En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html),
 la page ressemble à ce qui était attendu.
 De plus, le redimensionnement de la page réorganise bien les éléments.
 
@@ -543,12 +552,15 @@ Dans la partie suivante, nous allons voir comment travailler avec du code Javasc
 pour personnaliser le comportement des documents.
 
 <!-- links -->
-[devtools-ref]: #FIXME
-[step-30-00]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-00.zip
-[step-30-10]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-10.zip
-[step-30-20]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-20.zip
-[step-30-30]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-30.zip
-[ddui-ref_controle-rendu]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:32923fae-57b5-4e57-b048-b7342726101c.html#ddui-ref:32923fae-57b5-4e57-b048-b7342726101c
-[ddui-ref_classe-rendu]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:3d4e2523-9e0b-45d3-aa96-4214d3668b28.html#ddui-ref:3d4e2523-9e0b-45d3-aa96-4214d3668b28
-[ddui-ref_templates]: ../../../dynacase-doc-document-uis-reference/website/book/dui-ref:5c19913d-1687-4f31-956b-f590649eb5a0.html#ddui-ref:5c19913d-1687-4f31-956b-f590649eb5a0
-[ddui-ref_variables]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:b7a684b5-03af-43a4-8b56-32c43349190f.html#ddui-ref:134bc49e-6529-4e95-8f07-6e02559c6d8f
+[devtools-ref]:                 #devtools:
+[step-30-00]:                   https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-00.zip
+[step-30-10]:                   https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-10.zip
+[step-30-20]:                   https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-20.zip
+[step-30-30]:                   https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-30.zip
+[ddui-ref_controle-rendu]:      #ddui-ref:32923fae-57b5-4e57-b048-b7342726101c
+[ddui-ref_classe-rendu]:        #ddui-ref:3d4e2523-9e0b-45d3-aa96-4214d3668b28
+[ddui-ref_templates]:           #ddui-ref:5c19913d-1687-4f31-956b-f590649eb5a0
+[ddui-ref_variables]:           #ddui-ref:134bc49e-6529-4e95-8f07-6e02559c6d8f
+[ddui_ref:getCssReferences]:    #ddui-ref:adc69358-11e1-42b7-b0ed-f91af6807758
+[ddui-ref:getTemplates]:        #ddui-ref:5c19913d-1687-4f31-956b-f590649eb5a0
+[ddui-ref:getJsReferences]:     #ddui-ref:0166b72c-f88a-4d76-b28a-a8bf93c3cb2d

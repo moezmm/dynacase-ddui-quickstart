@@ -21,13 +21,35 @@ ce tutoriel est organisé en 5 chapitres principaux :
 -   [Conception d'un assistant avec Dynacase Document UIs][chapter_wizard]
 -   [Intégration d'un document Dynacase Document UIs dans une interface riche][chapter_integration]
 
+Chaque partie (et ses sous-parties) s'organisent de la même manière :
+
+-   Présentation des objectifs
+-   Présentation succincte des moyens d'atteindre cet objectif avec Dynacase Document UIS
+-   Lien vers les sources correspondantes
+
+## Suivi du tutoriel {#ddui-qs:bdfa35c7-92b6-4caa-a218-701fb4352294}
+
+Vous pouvez suivre ce tutoriel de 2 manières différentes :
+
+-   comme une visite guidée :
+    
+    Regardez les moyens mis en œuvre pour chaque besoin, mais n'écrivez pas le code,
+    regardez les interfaces correspondantes, mais ne créez pas les documents.
+    
+    <span class="flag inline nota-bene"></span> Cette approche vous donne une vue d'ensemble
+    des possibilités offertes par Dynacase Document UIS en 1 journée.
+
+-   comme une mini-formation :
+    
+    Chaque présentation des moyens d'atteindre l'objectif fait des liens vers les manuels de référence utiles.
+    Vous pouvez suivre ces liens, et tenter de développer tout ou partie du code correspondant.
+    
+    <span class="flag inline nota-bene"></span> Cette approche est plus longue.
+
 Au terme de ce tutoriel, vous connaîtrez les principales fonctionnalités de Dynacase Document UIs.
 
 Vous serez également en mesure d'explorer plus en détails les possibilités offertes par Dynacase Document UIs,
 et de réaliser des applications HTML5 tirant parti des derniers standards du web.
-
-Enfin, le chapitre [Pour aller plus loin avec Dynacase Document UIs][chapter_extra]
-vous donnera des astuces et des liens afin d'explorer les possibilités avancées de Dynacase Document UIs.
 
 ## Au secours {#ddui-qs:0c9afe43-2adc-4ca6-ad6a-a463e18893c3}
 
@@ -45,13 +67,12 @@ Enfin, si vous avez des remarques ou si vous souhaitez compléter ce tutoriel,
 nous vous invitons à nous les partager via [Github][quickstart_repo].
 
 <!-- links -->
-[anakeen_services]: http://anakeen.com/#services
-[chapter_preparation]: #ddui-qs:43ec59c9-4460-4981-81d4-ffc475843c24
-[chapter_decouverte]: #ddui-qs:240c8ae1-aa60-4e5b-a5d2-2872685b1389
-[chapter_responsive]: #ddui-qs:92f1caed-e4f6-472e-8770-eed318c3a207
-[chapter_wizard]: #ddui-qs:d0e9dddc-6336-4cc9-ac82-97cd72bfd0d4
-[chapter_integration]: #ddui-qs:18df3951-83c8-4b85-a3b1-3a10c7efc2dd
-[chapter_extra]: #ddui-qs:847a80f2-d486-4085-beb9-077a6d33df0c
-[forum_dynacase]: http://forum.dynacase.org/
-[forum_dynacase_qs]: http://forum.dynacase.org/viewforum.php?id=23
-[quickstart_repo]: https://github.com/Anakeen/dynacase-quick-start-ddui
+[anakeen_services]:     http://anakeen.com/#services
+[chapter_preparation]:  #ddui-qs:43ec59c9-4460-4981-81d4-ffc475843c24
+[chapter_decouverte]:   #ddui-qs:240c8ae1-aa60-4e5b-a5d2-2872685b1389
+[chapter_responsive]:   #ddui-qs:92f1caed-e4f6-472e-8770-eed318c3a207
+[chapter_wizard]:       #ddui-qs:d0e9dddc-6336-4cc9-ac82-97cd72bfd0d4
+[chapter_integration]:  #ddui-qs:18df3951-83c8-4b85-a3b1-3a10c7efc2dd
+[forum_dynacase]:       http://forum.dynacase.org/
+[forum_dynacase_qs]:    http://forum.dynacase.org/viewforum.php?id=23
+[quickstart_repo]:      https://github.com/Anakeen/dynacase-quick-start-ddui

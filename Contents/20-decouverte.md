@@ -5,7 +5,7 @@
 Dynacase Document UIs est un module Dynacase permettant de générer une représensation des documents au moyen des
 technologies HTML5.
 
-Le rendu des documents sans ce module est fait par le serveur, sous la forme d'une page HTML4 _monolythique_.
+Le rendu des documents sans ce module est fait par le serveur, sous la forme d'une page HTML4 _monolithique_.
 Dynacase Document UIs permet à la génération de se faire côté client au moyen de Javascript, HTML5 et CSS.
 
 Cela apporte les avantages suivants :
@@ -22,9 +22,7 @@ Cela apporte les avantages suivants :
 -   Comportement surchargeable
     
     De par cette souplesse, il devient très facile de surcharger le comportement du document pour implémenter des
-    fonctionnalités avancées (telles que le _wizard_ que nous verrons dans un [prochain chapitre][chapter_wizard],
-    ou encore le fonctionnement en mode déconnecté tel que présenté dans le chapitre
-    [Pour aller plus loin avec Dynacase Document UIs][chapter_extra] ).
+    fonctionnalités avancées (telles que le _wizard_ que nous verrons dans un [prochain chapitre][chapter_wizard], ou encore le fonctionnement en mode déconnecté).
 
 <span class="flag inline nota-bene"></span> Pour une présentation plus détaillée de Dynacase Document UIs,
 se reporter au [manuel de référence][ddui-ref]
@@ -52,7 +50,7 @@ Cette application sera composée des éléments Dynacase suivants :
 
 ### Récupération des sources {#ddui-qs:7436d855-2dc9-4aec-aa11-995db2ece57a}
 
-Les sources avant cette étapes correspondent au [tag `step-20-00`][step-20-00].
+Les sources avant cette étape correspondent au [tag `step-20-00`][step-20-00].
 
 ### Code {#ddui-qs:c3f52086-083b-42e6-9729-92d868f82298}
 
@@ -83,7 +81,7 @@ Il est possible de consulter le document
 -   dans sa __représentation standard__ à l'adresse
     [http://localhost:8080/?app=FDL&action=FDL_CARD&latest=Y&id=CONTACT_JOHN_DOE](http://localhost:8080/?app=FDL&action=FDL_CARD&latest=Y&id=CONTACT_JOHN_DOE)
 -   dans sa __représentation HTML5__ à l'adresse
-    [http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE)
+    [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html)
 
 Pour plus d'explications sur l'application `DOCUMENT`, voir [le manuel de référence ddui][ddui-ref-app-document]
 
@@ -105,7 +103,7 @@ la représentation traditionnelle et la représentation HTML5.
 
 -   Le changement d'état se fait depuis un menu sur l'état courant (à droite de la barre de menus)
 
--   En modification, les attributs sont construits au moyen de la version open source de al librairie
+-   En modification, les attributs sont construits au moyen de la version open source de la librairie
     [Kendo UI][kendo-ui-opensource].
     
     Cela amène une meilleure homogénéité des différents types d'attributs, ainsi qu'une plus grande souplesse.
@@ -115,11 +113,10 @@ ses éléments soient facilement adressables par CSS, facilement surchargeables 
 Nous allons exploiter cette nouvelle souplesse dans les chapitres suivants.
 
 <!-- links -->
-[ddui-ref]: ../../../dynacase-doc-document-uis-reference/website/book/
-[ddui-ref-app-document]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:f38f3995-1b3f-4b43-bacc-2516015e3ea.html#ddui-ref:f38f3995-1b3f-4b43-bacc-2516015e3ea
-[devtools-ref]: #FIXME
-[chapter_wizard]: #ddui-qs:d0e9dddc-6336-4cc9-ac82-97cd72bfd0d4
-[chapter_extra]: #ddui-qs:847a80f2-d486-4085-beb9-077a6d33df0c
-[step-20-00]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-20-00.zip
-[bootstrap]: http://getbootstrap.com/
-[kendo-ui-opensource]: http://www.telerik.com/kendo-ui/open-source-core
+[ddui-ref]:                 #ddui-ref:
+[ddui-ref-app-document]:    #ddui-ref:f38f3995-1b3f-4b43-bacc-2516015e3ea
+[devtools-ref]:             #devtools:
+[chapter_wizard]:           #ddui-qs:d0e9dddc-6336-4cc9-ac82-97cd72bfd0d4
+[step-20-00]:               https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-20-00.zip
+[bootstrap]:                http://getbootstrap.com/
+[kendo-ui-opensource]:      http://www.telerik.com/kendo-ui/open-source-core

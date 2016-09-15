@@ -3,28 +3,28 @@
 ## Principe {#ddui-qs:d4a896b1-6100-4bbd-a1b7-b8ca670c1dc6}
 
 Le wizard permet de découper la saisie du document en plusieurs étapes.
-Chaque étape définira un ensemble de conditions pour pouvoir passer à l'étape suivante.
+Chaque étape définit un ensemble de conditions pour pouvoir passer à l'étape suivante.
 
-Chaque étape sera implémentée au moyen d'une vue, accompagnée d'un masque.
-Ces vues seront pilotées au moyen d'un [contrôle de rendu][ddui-ref_controle-rendu],
+Chaque étape est implémentée au moyen d'une vue, accompagnée d'un masque.
+Ces vues sont pilotées au moyen d'un [contrôle de rendu][ddui-ref_controle-rendu],
 et d'une [classe d'accès à un rendu][ddui-ref_renderaccessclass].
 
-La dernière étape atteinte sera mémorisée dans un paramètre applicatif du document.
+La dernière étape atteinte est mémorisée dans un paramètre applicatif du document.
 
-La partie serveur sélectionnera la vue en se basant sur les informations envoyées par le client
+La partie serveur sélectionne la vue en se basant sur les informations envoyées par le client
 au moyen des [`customClientData`][ddui-ref_customClientData].
 
-Pendant le wizard, le document sera à l'état `Création`.
+Pendant le wizard, le document est à l'état `Création`.
 
-À la fin du wizard, le document sera passé à l'état `À jour`.
+À la fin du wizard, le document est passé à l'état `À jour`.
 
-L'état `Création` ne sera plus accessible après achèvement du wizard.
+L'état `Création` n'est plus accessible après achèvement du wizard.
 
-Voici à quoi ressemblera le document pendant le wizard :
+Voici à quoi ressemble le document pendant le wizard :
 
 ![Wizard](40-wizard.png)
 
-Les étapes seront les suivantes :
+Les étapes sont les suivantes :
 
 -   Identité
 -   Professionnel
@@ -44,16 +44,16 @@ qui va déterminer la vue suivante en fonction de :
 
 #### Récupération des sources {#ddui-qs:ce5b29aa-58a9-46fd-8521-267938eebdd4}
 
-Les sources avant cette étapes correspondent au [tag `step-40-00`][step-40-00].
+Les sources avant cette étape correspondent au [tag `step-40-00`][step-40-00].
 
 #### Code {#ddui-qs:dc1398f3-e752-458b-a391-ede6fa38baac}
 
-Chaque vue sera composée de :
+Chaque vue est composée de :
 
 -   un masque de saisie,
 -   une [classe de rendu][ddui-ref_classe-rendu],
 
-De plus, le contrôle de rendu sera associé à une [classe d'accès à un rendu][ddui-ref_renderaccessclass].
+De plus, le contrôle de rendu est associé à une [classe d'accès à un rendu][ddui-ref_renderaccessclass].
 
 Ces éléments doivent donc être initialisés avant création du contrôle de rendu.
 
@@ -167,7 +167,7 @@ La commande est donc :
 
 #### Le résultat {#ddui-qs:4642aa2a-a191-470a-aec5-13786a481999}
 
-En accédant au contact _John DOE_ en modification à l'adresse [http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons que seul le cadre _identité_ est présenté.
 En effet, notre classe d'accès à un rendu retourne null, laissant le contrôle de rendu afficher sa vue par défaut,
 c'est à dire la première vue de modification.
@@ -185,7 +185,7 @@ envoyées par le client au moyen des [`customClientData`][ddui-ref_customClientD
     et la première vue si le paramètre applicatif n'est pas renseigné.
 
 `goto`
-:   Une consigne sur l'étape à atteindre, parmi :
+:   Une _consigne_ sur l'étape à atteindre, parmi :
     
     `wizard.previous`
     :   Indique que l'utilisateur veut revenir vers l'étape précédente.
@@ -200,14 +200,20 @@ envoyées par le client au moyen des [`customClientData`][ddui-ref_customClientD
 
 #### Récupération des sources {#ddui-qs:e73b9df2-0f20-4310-a231-5bbe45241c51}
 
-Les sources avant cette étapes correspondent au [tag `step-40-10`][step-40-10].
+Les sources avant cette étape correspondent au [tag `step-40-10`][step-40-10].
 
 #### Code {#ddui-qs:e5e186b3-9d88-4675-94b2-3f5967a0bb4e}
 
-On ajoute la méthode `initWizardInfos` à la classe `ContactWizardRenderConfigEdit` dans le fichier
+Le code de sélection de la vue en fonction des vues disponibles dans le contrôle de rendu,
+et des _consignes_ envoyées par le client
+est fourni au moyen de la méthode `initWizardInfos` depuis la trait `TContactWizardRenderConfigEdit`.
+
+Il suffit de charger cette trait dans la classe `ContactWizardRenderConfigEdit` dans le fichier
 [`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactWizardRenderConfigEdit.php`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-40-20/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactWizardRenderConfigEdit.php "Télécharger le fichier complété").
-Cette méthode récupère les données envoyées par le client, et stocke les informations sur les vues dans la propriété
-`wizardInfos`. Elle va également déterminer la vue à appliquer, et la stocker également dans cette propriété :
+
+<span class="flag inline nota-bene"></span> La méthode `initWizardInfos` est une manière d'implémenter un wizard.
+Sa complexité n'a aucun intérêt particulier pour le compréhension du tutoriel,
+et elle n'est fournie qu'à titre d'exemple.
 
     [php]
     <?php
@@ -219,177 +225,7 @@ Cette méthode récupère les données envoyées par le client, et stocke les in
     
     class ContactWizardRenderConfigEdit extends \Dcp\Ui\DefaultEdit
     {
-        protected $wizardInfos;
-    
-        public function initWizardInfos(\Doc $document, $force = false) {
-            if($force || is_null($this->wizardInfos)) {
-                $wizardSteps = [];
-                $wizardCurrentStepKey = 0;
-                $wizardNextStep = null;
-                $goto = null;
-                $wizardTags = $document->getUTag('wizard');
-                if(false === $wizardTags) {
-                    $wizardTags = [];
-                } else {
-                    $wizardTags = json_decode($wizardTags->comment, true);
-                }
-    
-                $customClientData = \Dcp\Ui\Utils::getCustomClientData();
-                if (isset($customClientData['currentWizardStepName'])) {
-                    $currentWizardStepName = $customClientData['currentWizardStepName'];
-                } else {
-                    if(isset($wizardTags['currentWizardStepName']))
-                    {
-                        $currentWizardStepName = $wizardTags['currentWizardStepName'];
-                    } else {
-                        $currentWizardStepName = null;
-                    }
-                }
-    
-                // get the list of wizard views
-                $wizardViews = $this->getWizardViews($document);
-    
-                if (isset($customClientData['goto']) && 'wizard.targetStep' === $customClientData['goto']) {
-                    $currentWizardStepName = $customClientData['targetStep'];
-                }
-    
-                foreach ($wizardViews as $key => $wizardView) {
-                    $wizardView['attributes'] = $this->getWizardViewAttributes(
-                        $document,
-                        $wizardView[CvrenderAttributes::cv_mskid]
-                    );
-    
-                    $wizardSteps[] = $wizardView;
-                    if ($wizardView[CvrenderAttributes::cv_idview] === $currentWizardStepName
-                    ) {
-                        $wizardCurrentStepKey = $key;
-                    }
-                }
-                $nbSteps = count($wizardSteps);
-    
-                if (isset($customClientData['goto'])) {
-                    switch($customClientData['goto']) {
-                    case 'wizard.previous':
-                        if(0 < $wizardCurrentStepKey) {
-                            $wizardCurrentStepKey--;
-                        }
-                    break;
-                    case 'wizard.next':
-                        if ($nbSteps-1 > $wizardCurrentStepKey) {
-                            $wizardCurrentStepKey++;
-                        }
-                    }
-                }
-    
-                $wizardSteps[$wizardCurrentStepKey]['current'] = true;
-    
-                $wizardTags['currentWizardStepName']
-                    = $wizardSteps[$wizardCurrentStepKey][CvrenderAttributes::cv_idview];
-                $wizardTags['currentWizardStepLabel']
-                    = $wizardSteps[$wizardCurrentStepKey][CvrenderAttributes::cv_lview];
-                $document->addUTag($document->getSystemUserId(), 'wizard', json_encode($wizardTags));
-    
-                $document->setMask(
-                    $wizardSteps[$wizardCurrentStepKey][CvrenderAttributes::cv_mskid]
-                );
-    
-                $this->wizardInfos = [
-                    "steps" => $wizardSteps,
-                    "previousStep" => (isset($wizardSteps[$wizardCurrentStepKey - 1])
-                        ? $wizardSteps[$wizardCurrentStepKey - 1]
-                        : null),
-                    "currentStep" => $wizardSteps[$wizardCurrentStepKey],
-                    "nextStep" => (isset($wizardSteps[$wizardCurrentStepKey + 1])
-                        ? $wizardSteps[$wizardCurrentStepKey + 1]
-                        : null),
-                    "nbSteps" => $nbSteps
-                ];
-            }
-        }
-    
-        protected function getWizardViews(\Doc $document)
-        {
-            $wizardViews = [];
-    
-            $cvId = $document->getPropertyValue('cvid');
-            /** @var CvrenderFamily $cvDoc */
-            $cvDoc = new_Doc('', $cvId, true);
-            if ($cvDoc->isAlive()) {
-                $cvDoc->set($document);
-    
-                $wizardViews = $cvDoc->getArrayRawValues(
-                    CvrenderAttributes::cv_t_views
-                );
-    
-                $wizardViews = array_filter(
-                    $wizardViews,
-                    function ($value) {
-                        return "WIZARD_" === substr(
-                            $value[CvrenderAttributes::cv_idview], 0, 7
-                        );
-                    }
-                );
-    
-                usort(
-                    $wizardViews,
-                    function ($value1, $value2) {
-                        if ($value1[CvrenderAttributes::cv_order]
-                            === $value2[CvrenderAttributes::cv_order]
-                        ) {
-                            return 0;
-                        }
-                        return ($value1[CvrenderAttributes::cv_order]
-                            < $value2[CvrenderAttributes::cv_order]) ? -1 : 1;
-                    }
-                );
-            }
-    
-            return $wizardViews;
-        }
-    
-        protected function getWizardViewAttributes(\Doc $contact, $mskId)
-        {
-            $fields = [];
-            $frames = [];
-            $initMid = $contact->getPropertyValue('mid');
-            if($mskId !== $initMid){
-                $contact->setMask($mskId);
-    
-                foreach ($contact->getNormalAttributes() as $attribute) {
-                    if ('W' === $attribute->mvisibility
-                        || 'O' === $attribute->mvisibility
-                    ) {
-                        $fields[$attribute->ordered] = [
-                            'attrid' => $attribute->id,
-                            'required' => $attribute->needed,
-                            'label' => $attribute->getLabel(),
-                            'type' => $attribute->type,
-                            'filled' => trim($contact->getRawValue($attribute->id)) !== ""
-                        ];
-                    }
-                }
-    
-                foreach ($contact->getFieldAttributes() as $attribute) {
-                    if ($attribute->type === 'frame'
-                        && ('W' === $attribute->mvisibility
-                            || 'O' === $attribute->mvisibility)
-                    ) {
-                        $frames[] = [
-                            'attrid' => $attribute->id,
-                            'label' => $attribute->getLabel()
-                        ];
-    
-                    }
-                }
-                $contact->setMask($initMid);
-            }
-    
-            return [
-                'frames' => array_values($frames),
-                'fields' => array_values($fields),
-                'nbFields' => count($fields)
-            ];
-        }
+        use TContactWizardRenderConfigEdit;
     }
 
 Nous pouvons maintenant définir cette configuration de rendu comme étant
@@ -409,10 +245,10 @@ Cela se fait dans la classe `ContactCvrenderRenderConfigAccess` du fichier
     class ContactCvrenderRenderConfigAccess implements IRenderConfigAccess
     {
         /**
-         - @param string $mode
-         - @param \Doc   $document
+         * @param string $mode
+         * @param \Doc   $document
          *
-         - @return IRenderConfig
+         * @return IRenderConfig
          */
         public function getRenderConfig($mode, \Doc $document)
         {
@@ -447,18 +283,18 @@ La commande est donc :
 
 #### Le résultat {#ddui-qs:5af86030-8a8e-459d-b9b1-81253dd13a7e}
 
-En accédant au contact _John DOE_ en modification à l'adresse [http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons que seul le cadre _identité_ est présenté.
 En effet, en l'absence de données du client, la première vue est sélectionnée et appliquée.
 
 ### Partie serveur : mise en place du header {#ddui-qs:e8c8da50-268a-4cbb-9707-7c4deb90d6d2}
 
-Le menu va être surchargé au moyen d'un template personnalisé
+Le menu est surchargé au moyen d'un template personnalisé
 pour afficher les différentes étapes du wizard au dessus du menu.
 
 #### Récupération des sources {#ddui-qs:976b1bbc-e387-43be-a343-342236feaa58}
 
-Les sources avant cette étapes correspondent au [tag `step-40-20`][step-40-20].
+Les sources avant cette étape correspondent au [tag `step-40-20`][step-40-20].
 
 #### Code {#ddui-qs:d289942c-1a9b-4638-854f-6adc02865b0c}
 
@@ -644,8 +480,11 @@ La commande est donc :
 
 #### Le résultat {#ddui-qs:f3a62e88-2c97-4fb6-97e2-f25564c10da6}
 
-En accédant au contact _John DOE_ en modification à l'adresse [http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons que le bandeau de navigation entre les différentes étapes est maintenant visible.
+
+<span class="flag inline nota-bene"></span> Ce bandeau n'est pas fonctionnel pour le moment.
+Les chapitres suivants feront petit à fonctionner chacun des éléments de ce bandeau.
 
 ### Partie serveur : Personnalisation du menu {#ddui-qs:ae07c2ce-3037-4215-bfb5-893814f8bc96}
 
@@ -656,7 +495,7 @@ Les entrées de menu vont être surchargées :
 
 #### Récupération des sources {#ddui-qs:17c70b7a-baf9-406a-965c-0681cf9f36f9}
 
-Les sources avant cette étapes correspondent au [tag `step-40-30`][step-40-30].
+Les sources avant cette étape correspondent au [tag `step-40-30`][step-40-30].
 
 #### Code {#ddui-qs:7cab3997-c721-481e-869b-81b31172f5fe}
 
@@ -671,7 +510,7 @@ La méthode [`getMenu`][ddui-ref_getMenu] est surchargée dans la classe `Contac
         $menu = parent::getMenu($document);
     
         //Hide some menus
-        foreach(['save', 'saveAndClose', 'create', 'createAndClose', 'close', 'workflow'] as $elementId) {
+        foreach(['save', 'create', 'createAndClose', 'close', 'workflow'] as $elementId) {
             $element = $menu->getElement($elementId);
             if (!is_null($element)) {
                 $element->setVisibility(ElementMenu::VisibilityHidden);
@@ -697,7 +536,8 @@ La méthode [`getMenu`][ddui-ref_getMenu] est surchargée dans la classe `Contac
         );
         $item->setBeforeContent('<div class="fa fa-step-forward" />');
         $item->setHtmlAttribute("class", "menu--right");
-        if (empty($this->wizardInfos['nextStep'])) {
+        if (\DduiTuto\DDUI_TUTO_CONTACT__WFL::e_up_to_date === $document->getState()
+            || !empty($this->wizardInfos['nextStep'])) {
             $item->setVisibility($item::VisibilityHidden);
         }
         $menu->appendElement($item);
@@ -743,8 +583,7 @@ La commande est donc :
 
 #### Le résultat {#ddui-qs:9b18cdcf-00a4-49a0-a765-1a067113234c}
 
-En accédant au contact _John DOE_ en modification à l'adresse
-[http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons que le menu présente de nouvelles entrées en lieu et place des anciennes.
 
 ### Partie serveur : Personnalisation du corps du document {#ddui-qs:8f4d8c64-508e-4ef0-bc9e-1e12bdb4737a}
@@ -755,7 +594,7 @@ Ce template sera généré à la volée à partir des informations des vues.
 
 #### Récupération des sources {#ddui-qs:1898e2c5-d7e1-4b37-a21f-016eb4e65a6a}
 
-Les sources avant cette étapes correspondent au [tag `step-40-40`][step-40-40].
+Les sources avant cette étape correspondent au [tag `step-40-40`][step-40-40].
 
 #### Code {#ddui-qs:39be91e0-98ab-4916-9404-c8882f66e921}
 
@@ -811,7 +650,7 @@ au moyen des [customServerData][ddui-ref_customServerData]
 
 #### Récupération des sources {#ddui-qs:feffb5e2-9918-429e-aa67-c005f8c6a44e}
 
-Les sources avant cette étapes correspondent au [tag `step-40-50`][step-40-50].
+Les sources avant cette étape correspondent au [tag `step-40-50`][step-40-50].
 
 #### Code {#ddui-qs:7ca90642-a2c0-427a-a2b6-a908bbb6eba0}
 
@@ -856,7 +695,7 @@ Aucun changement n'est perceptible dans cette étape car ces données seront uti
 
 #### Récupération des sources {#ddui-qs:457bbebb-742c-4d46-acf3-1dd5b89c344a}
 
-Les sources avant cette étapes correspondent au [tag `step-40-60`][step-40-60].
+Les sources avant cette étape correspondent au [tag `step-40-60`][step-40-60].
 
 #### Code {#ddui-qs:1c00b3d8-62ef-4ed0-8dd8-68e04dcf4268}
 
@@ -940,8 +779,7 @@ La commande est donc :
 
 #### Le résultat {#ddui-qs:63cb9890-66cf-4f2c-8777-ef3b69c5d284}
 
-En accédant au contact _John DOE_ en modification à l'adresse
-[http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons que les chevrons sont colorés en fonction des attributs renseignés.
 
 ### Partie client : Gestion des menus {#ddui-qs:0c8d783c-bc94-4296-b0fe-f45c54ec71de}
@@ -950,7 +788,7 @@ Lors du click sur les éléments de menu, un [événement de type action][ddui-r
 
 #### Récupération des sources {#ddui-qs:7a3cb27d-12b8-4559-a84d-664d79425a68}
 
-Les sources avant cette étapes correspondent au [tag `step-40-70`][step-40-70].
+Les sources avant cette étape correspondent au [tag `step-40-70`][step-40-70].
 
 #### Code {#ddui-qs:617a0daf-f367-4631-8d99-bcd204da154d}
 
@@ -981,11 +819,6 @@ par l'ajout d'un écouteur `actionClick.wizard.contact` dans le fichier
     
             switch (options.eventId) {
                 case 'wizard.cancel':
-                    if(documentObject.isModified) {
-                        if(!window.confirm("The document has been modified. Do you want to continue and lose all changes?")) {
-                            break;
-                        }
-                    }
                     this.documentController(
                         "reinitDocument",
                         {
@@ -995,6 +828,7 @@ par l'ajout d'un écouteur `actionClick.wizard.contact` dans le fichier
                     break;
                 case 'wizard.previous':
                 case 'wizard.next':
+                    // save document and send customClientData with goto and currentStepName
                     this.documentController(
                         "saveDocument",
                         {
@@ -1003,7 +837,22 @@ par l'ajout d'un écouteur `actionClick.wizard.contact` dans le fichier
                                 currentWizardStepName: currentWizardStepName
                             }
                         }
-                    );
+                    ).then(function actionClickWizardContact_success(successInfos)
+                    {
+                        successInfos.element.documentController(
+                            "showMessage",
+                            "Document has been saved"
+                        );
+                    }, function actionClickWizardContact_error(errorInfos)
+                    {
+                        errorInfos.element.documentController(
+                            "showMessage",
+                            {
+                                type: 'error',
+                                message: 'an error occured: ' + errorInfos.errorMessage.contentText
+                            }
+                        );
+                    });
                     break;
                 case 'wizard.end':
                     //TODO
@@ -1034,15 +883,14 @@ La commande est donc :
 
 #### Le résultat {#ddui-qs:aca3ea75-e03c-4c4d-8bab-aca2123f6f28}
 
-En accédant au contact _John DOE_ en modification à l'adresse
-[http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons qu'il est possible de naviguer d'étape en étape au moyen du menu.
 
 ### Partie client : Gestion du clic sur une étape {#ddui-qs:0c9079c0-94d8-4990-a304-6ab83ed4f878}
 
 #### Récupération des sources {#ddui-qs:d70781bf-0927-4e30-bc23-fcb29e303ac2}
 
-Les sources avant cette étapes correspondent au [tag `step-40-80`][step-40-80].
+Les sources avant cette étape correspondent au [tag `step-40-80`][step-40-80].
 
 #### Code {#ddui-qs:62ae0215-a94e-42e4-ba09-3dc6a8688f96}
 
@@ -1068,12 +916,6 @@ Cet événement sera capturé par l'ajout d'un écouteur `actionClick.wizard.con
                 currentWizardStepName = null;
     
             event.preventDefault();
-    
-            if (this.documentController("getProperties").isModified) {
-                if (!window.confirm("The document has been modified. Do you want to continue and lose all changes?")) {
-                    return;
-                }
-            }
     
             if (customServerData && customServerData.wizardInfos && customServerData.wizardInfos.currentStep) {
                 currentWizardStepName = customServerData.wizardInfos.currentStep.cv_idview;
@@ -1119,15 +961,14 @@ La commande est donc :
 
 #### Le résultat {#ddui-qs:fca11ecd-69b0-48c6-bec5-6159c22ee858}
 
-En accédant au contact _John DOE_ en modification à l'adresse
-[http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons qu'il est possible de naviguer d'étape en étape en cliquant sur le libellé des étapes.
 
 ### Partie client : rafraîchissement du résumé lors des changements de valeur {#ddui-qs:861f5783-6771-46e5-906a-da45fc57a462}
 
 #### Récupération des sources {#ddui-qs:8b13ac65-7da4-4394-bcf4-cc745bb450ee}
 
-Les sources avant cette étapes correspondent au [tag `step-40-90`][step-40-90].
+Les sources avant cette étape correspondent au [tag `step-40-90`][step-40-90].
 
 #### Code {#ddui-qs:62e3698e-2d61-44f5-af7b-0cfb259f0ff0}
 
@@ -1177,8 +1018,7 @@ La commande est donc :
 
 #### Le résultat {#ddui-qs:a8e3d03b-663c-4e66-bcfd-280ac6b36fe0}
 
-En accédant au contact _John DOE_ en modification à l'adresse
-[http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons que le bandeau de navigation est bien rafraîchi
 lors de l'ajout ou de la suppression d'une valeur dans le document.
 
@@ -1188,11 +1028,11 @@ Lorsque l'utilisateur clique sur le bouton de fin de wizard, le document est enr
 
 #### Récupération des sources {#ddui-qs:744e0932-6f38-4534-95da-9a92042daa78}
 
-Les sources avant cette étapes correspondent au [tag `step-40-100`][step-40-100].
+Les sources avant cette étape correspondent au [tag `step-40-100`][step-40-100].
 
 #### Code {#ddui-qs:e35f66b4-55dd-485b-86ac-30ca778d338c}
 
-Le clic sur ce bouton émet [événement de type action][ddui-ref_event-action].
+Le clic sur ce bouton émet un [événement de type action][ddui-ref_event-action].
 Cet événement est traité en ajoutant la gestion de l'action `wizard.end`
 dans l'écouteur `actionClick.wizard.contact` dans le fichier
 [`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/Layout/wizard.js`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-40-110/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/Layout/wizard.js "Télécharger le fichier complété").
@@ -1222,11 +1062,6 @@ du contrôleur de document :
     
             switch (options.eventId) {
                 case 'wizard.cancel':
-                    if(documentObject.isModified) {
-                        if(!window.confirm("The document has been modified. Do you want to continue and lose all changes?")) {
-                            break;
-                        }
-                    }
                     this.documentController(
                         "reinitDocument",
                         {
@@ -1252,22 +1087,21 @@ du contrôleur de document :
                         {
                             customClientData: {
                                 currentWizardStepName: currentWizardStepName
-                            },
-                            success: function wizardEnd_changeState() {
-                                window.dcp.document.documentController(
-                                    "changeStateDocument",
-                                    {
-                                        "nextState": "ctc_e2",
-                                        "transition": "ctc_t_e1__e2"
-                                    },
-                                    {
-                                        viewId: '!defaultConsultation',
-                                        revision: -1
-                                    }
-                                );
                             }
+                    ).then(function wizardEnd_changeState() {
+                        window.dcp.document.documentController(
+                            "changeStateDocument",
+                            {
+                                "nextState": "ctc_e2",
+                                "transition": "ctc_t_e1__e2"
+                            },
+                            {
+                                viewId: '!defaultConsultation',
+                                revision: -1
+                            }
+                        );
                         }
-                    );
+                    });
                     break;
                 default:
                     return;
@@ -1295,8 +1129,7 @@ La commande est donc :
 
 #### Le résultat {#ddui-qs:a98d847e-1e42-46c6-a256-3cd328f691f2}
 
-En accédant au contact _John DOE_ en modification à l'adresse
-[http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultEdition),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons que le bouton de fin de wizard est fonctionnel.
 
 ### Partie serveur : Prise en compte du libellé d'étape en consultation {#ddui-qs:fc1ae666-23da-47d9-a9d6-f65cfdcaf6c5}
@@ -1305,7 +1138,7 @@ En consultation, le menu de modification doit afficher l'étape en cours.
 
 #### Récupération des sources {#ddui-qs:4be2acee-2a06-4178-a9a2-f1196e67ecf0}
 
-Les sources avant cette étapes correspondent au [tag `step-40-110`][step-40-110].
+Les sources avant cette étape correspondent au [tag `step-40-110`][step-40-110].
 
 #### Code {#ddui-qs:624ed3c9-05ce-452a-a202-6b2c47b0f829}
 
@@ -1355,37 +1188,36 @@ La commande est donc :
 
 #### Le résultat {#ddui-qs:65663ead-a3d1-4def-8ea9-284e166084a8}
 
-En accédant au contact _John DOE_ en consultation à l'adresse
-[http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultConsultation](http://localhost:8080/?app=DOCUMENT&initid=CONTACT_JOHN_DOE&viewId=!defaultConsultation),
+En accédant au contact _Thomas ANDERSON_ en consultation à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultConsultation.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultConsultation.html),
 nous constatons que le bouton de modification reflète bien la dernière étape consultée.
 
 ## Conclusion {#ddui-qs:b7d9b582-52be-48d4-8168-5a7f1205f73a}
 
 <!-- links -->
-[devtools-ref]: #FIXME
-[step-40-00]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-00.zip
-[step-40-10]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-10.zip
-[step-40-20]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-20.zip
-[step-40-30]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-30.zip
-[step-40-40]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-40.zip
-[step-40-50]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-50.zip
-[step-40-60]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-60.zip
-[step-40-70]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-70.zip
-[step-40-80]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-80.zip
-[step-40-90]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-90.zip
-[step-40-100]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-100.zip
-[step-40-110]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-110.zip
-[step-40-120]: https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-120.zip
-[ddui-ref_controle-rendu]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:32923fae-57b5-4e57-b048-b7342726101c.html#ddui-ref:32923fae-57b5-4e57-b048-b7342726101c
-[ddui-ref_renderaccessclass]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:3d4e2523-9e0b-45d3-aa96-4214d3668b28.html#ddui-ref:3d4e2523-9e0b-45d3-aa96-4214d3668b28
-[ddui-ref_classe-rendu]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:3d4e2523-9e0b-45d3-aa96-4214d3668b28.html#ddui-ref:3d4e2523-9e0b-45d3-aa96-4214d3668b28
-[ddui-ref_customClientData]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:b6b580f9-9227-4101-a31e-75de0ad6a3f3.html#ddui-ref:bf888a4a-7194-4e06-96ce-b6f3a5523363
-[ddui-ref_getCssReferences]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:adc69358-11e1-42b7-b0ed-f91af6807758.html#ddui-ref:26f310ef-7313-4070-84d8-143c1d3a7d1e
-[ddui-ref_getTemplates]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:5c19913d-1687-4f31-956b-f590649eb5a0.html#ddui-ref:5c19913d-1687-4f31-956b-f590649eb5a0
-[ddui-ref_getContextController]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:35cdd158-f089-4701-b282-8a1bbc853803.html#ddui-ref:b5853d4d-79c5-4393-a974-e290cc4a11f8
-[ddui-ref_getMenu]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:304a3125-ae47-4ac9-8f1d-15c91257694f.html#ddui-ref:304a3125-ae47-4ac9-8f1d-15c91257694f
-[ddui-ref_customServerData]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:86f87534-f4f9-43e2-92e0-3b4cf860b363.html#ddui-ref:86f87534-f4f9-43e2-92e0-3b4cf860b363
-[ddui-ref_getCustomServerData]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:b6b580f9-9227-4101-a31e-75de0ad6a3f3.html#ddui-ref:4a29f6a1-3db4-4cce-b1c4-f5400973e36c
-[ddui-ref_getJsReferences]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:03cf81cc-241d-48ba-b16d-b44e9b6a3a18.html#ddui-ref:8b913b81-d454-4aaa-b11c-4966e6fca63f
-[ddui-ref_changeStateDocument]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:b6b580f9-9227-4101-a31e-75de0ad6a3f3.html#ddui-ref:cf5b6cab-3b84-4c6c-b3ec-ae74220a02a4
-[ddui-ref_event-action]: ../../../dynacase-doc-document-uis-reference/website/book/ddui-ref:a1a7c169-6bd7-4c67-83cf-918c8793fbbe.html#ddui-ref:be1ad245-dbd2-4fe8-8cb5-7e1e898f8646
+[devtools-ref]:                     #devtools:
+[step-40-00]:                       https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-00.zip
+[step-40-10]:                       https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-10.zip
+[step-40-20]:                       https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-20.zip
+[step-40-30]:                       https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-30.zip
+[step-40-40]:                       https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-40.zip
+[step-40-50]:                       https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-50.zip
+[step-40-60]:                       https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-60.zip
+[step-40-70]:                       https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-70.zip
+[step-40-80]:                       https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-80.zip
+[step-40-90]:                       https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-90.zip
+[step-40-100]:                      https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-100.zip
+[step-40-110]:                      https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-110.zip
+[step-40-120]:                      https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-120.zip
+[ddui-ref_controle-rendu]:          #ddui-ref:32923fae-57b5-4e57-b048-b7342726101c
+[ddui-ref_renderaccessclass]:       #ddui-ref:3d4e2523-9e0b-45d3-aa96-4214d3668b28
+[ddui-ref_classe-rendu]:            #ddui-ref:3d4e2523-9e0b-45d3-aa96-4214d3668b28
+[ddui-ref_customClientData]:        #ddui-ref:335d38fb-332a-4e70-8f15-e6a46aae3c57
+[ddui-ref_getCssReferences]:        #ddui-ref:26f310ef-7313-4070-84d8-143c1d3a7d1e
+[ddui-ref_getTemplates]:            #ddui-ref:5c19913d-1687-4f31-956b-f590649eb5a0
+[ddui-ref_getContextController]:    #ddui-ref:b5853d4d-79c5-4393-a974-e290cc4a11f8
+[ddui-ref_getMenu]:                 #ddui-ref:304a3125-ae47-4ac9-8f1d-15c91257694f
+[ddui-ref_customServerData]:        #ddui-ref:86f87534-f4f9-43e2-92e0-3b4cf860b363
+[ddui-ref_getCustomServerData]:     #ddui-ref:4a29f6a1-3db4-4cce-b1c4-f5400973e36c
+[ddui-ref_getJsReferences]:         #ddui-ref:8b913b81-d454-4aaa-b11c-4966e6fca63f
+[ddui-ref_changeStateDocument]:     #ddui-ref:cf5b6cab-3b84-4c6c-b3ec-ae74220a02a4
+[ddui-ref_event-action]:            #ddui-ref:be1ad245-dbd2-4fe8-8cb5-7e1e898f8646
