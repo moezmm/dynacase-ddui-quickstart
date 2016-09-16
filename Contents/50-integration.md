@@ -430,6 +430,13 @@ Depuis l'application à l'adresse [http://localhost:8080/?app=SIMPLE_LIST](http:
 immédiatement après la suppression d'un contact et que sa fiche ait été supprimée de la liste de gauche,
 il est possible de le restaurer. Sa fiche est alors ajoutée à nouveau à la liste de gauche.
 
+## Conclusion
+
+Dans cette partie, vous avez appris à utiliser le widget de document.
+
+Ce composant permet de simplement intégrer un ou plusieurs documents dans une interface complexe, en ayant une abstraction du fonctionnement interne du document.
+Il est piloté par des méthodes et émet des événements auxquels votre interface peut réagir.
+
 <!-- links -->
 [step-50-00]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-00.zip
 [step-50-10]:                           https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-50-10.zip

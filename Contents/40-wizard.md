@@ -1193,6 +1193,16 @@ nous constatons que le bouton de modification reflète bien la dernière étape 
 
 ## Conclusion {#ddui-qs:b7d9b582-52be-48d4-8168-5a7f1205f73a}
 
+Vous avez vu dans cette partie que tous les comportements par défaut du document sont personnalisables,
+au niveau serveur par du code PHP, et au niveau client par du code Javascript.
+
+Ce code peut intercepter l'ensemble des comportements prédéfinis pour les modifier, mais il est également possible d'ajouter des données supplémentaires
+et de les traiter pour non seulement modifier, mais aussi étendre le comportement par défaut.
+
+Enfin, couplés aux fonctionnalités de CSS vues au chapitre précédent, ces surcharges permettent de changer profondément la façon dont les documents sont présentés à l'utilisateur.
+
+Dans la partie suivante, vous apprendrez à intégrer ces documents enrichis à une interface applicative complexe.
+
 <!-- links -->
 [devtools-ref]:                     #devtools:
 [step-40-00]:                       https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-40-00.zip

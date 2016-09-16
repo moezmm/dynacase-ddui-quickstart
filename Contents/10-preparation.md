@@ -8,7 +8,7 @@ Ce contexte peut être obtenu de 3 manières différentes.
 
 ### Virtualbox {#ddui-qs:2e9ea755-7177-407f-9f79-d9f7e39cacd5}
 
-Une appliance virtualbox est disponible [sur notre site][virtualbox-appliances] : `dynacase-quick-start-ddui_debian-8.5.0-amd64-2016-09-15.ova`.
+Une appliance virtualbox est disponible [sur notre site][virtualbox-appliances] : `dynacase-quick-start-ddui.ova`.
 Il suffit de l'importer et de la démarrer.
 
 <span class="flag inline nota-bene"></span> L'appliance mappe le port 80 de l'invité sur le port 8080 de l'hôte.
@@ -53,11 +53,12 @@ Vous pouvez accéder à ce tag au moyen de git si vous avez cloné le dépot,
 ou vous pouvez télécharger directement une archive pour chaque étape depuis github via un lien.
 
 <!-- links -->
-[virtualbox-appliances]:           http://eec.anakeen.com/public/tools/appliances/
+
+[devtools-linux]:           https://eec.anakeen.com/public/tools/development/dynacase-devtool.phar
+[devtools-ref]:             #devtools:
+[devtools-windows]:         https://eec.anakeen.com/public/tools/development/dynacase-devtool-win32.zip
+[gh_sources]:               https://github.com/Anakeen/dynacase-ddui-quickstart-code
 [man-inst]:                 #manex-ref: "Installation & Exploitation"
 [tuto-sources]:             https://github.com/Anakeen/dynacase-ddui-quickstart-code
 [tuto-sources-releases]:    https://github.com/Anakeen/dynacase-ddui-quickstart-code/releases
-[devtools-linux]:           https://eec.anakeen.com/public/tools/development/dynacase-devtool.phar
-[devtools-windows]:         https://eec.anakeen.com/public/tools/development/dynacase-devtool-win32.zip
-[devtools-ref]:             #devtools:
-[gh_sources]:               https://github.com/Anakeen/dynacase-ddui-quickstart-code
+[virtualbox-appliances]:    https://eec.anakeen.com/public/tools/appliances/
