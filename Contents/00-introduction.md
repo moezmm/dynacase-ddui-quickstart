@@ -9,7 +9,7 @@ Ces formations, d'une durée de 5 jours en standard, permettent d'aborder les po
 Elles peuvent aussi être adaptées pour aborder des thèmes non présentés dans ce document.
 Elles alternent parties théoriques et applications pratiques. Les parties pratiques s'appuient sur un projet standard
 ou peuvent être basées sur votre propre projet.  
-Elles se déroulent en inter entreprise sur Paris ou Toulouse ou en intra sur votre site.
+Elles se déroulent en intra entreprise sur Paris ou Toulouse.
 
 ## Organisation {#ddui-qs:ae2c5296-01e2-427c-94f9-ad1f65f76eb2}
 
