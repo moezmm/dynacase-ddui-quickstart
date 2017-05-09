@@ -68,20 +68,20 @@ Le déploiement se fait au moyen du _developer toolkit_
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 ### Le résultat {#ddui-qs:fc37ec8c-df21-41b0-993a-556bba7f7752}
 
 Il est possible de consulter le document
 
 -   dans sa __représentation standard__ à l'adresse
-    [http://localhost:8080/?app=FDL&action=FDL_CARD&latest=Y&id=CONTACT_JOHN_DOE](http://localhost:8080/?app=FDL&action=FDL_CARD&latest=Y&id=CONTACT_JOHN_DOE)
+    [http://localhost:8082/?app=FDL&action=FDL_CARD&latest=Y&id=CONTACT_JOHN_DOE](http://localhost:8082/?app=FDL&action=FDL_CARD&latest=Y&id=CONTACT_JOHN_DOE)
 -   dans sa __représentation HTML5__ à l'adresse
-    [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html)
+    [http://localhost:8082/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8082/api/v1/documents/CONTACT_JOHN_DOE.html)
 
 Pour plus d'explications sur l'application `DOCUMENT`, voir [le manuel de référence ddui][ddui-ref-app-document]
 

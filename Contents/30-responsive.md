@@ -20,8 +20,8 @@ Voici à quoi ressemblera le document final :
 
 ### Mise en place du contrôle de rendu {#ddui-qs:4c4da56f-0828-4a49-b1ba-8f24419aaf8f}
 
-Nous allons créer un [contrôle de rendu][ddui-ref_controle-rendu] afin de surcharger le rendu du document.
-Pour rappel, le contrôle de rendu se manipule de la même manière que le contrôle de vue :
+Nous allons créer un [contrôle de vue][ddui-ref_controle-vue] afin de surcharger le rendu du document.
+Pour rappel, le contrôle de vue se manipule de la manière suivante:
 
 -   il est créé
 -   il est ensuite attaché à la famille
@@ -34,11 +34,11 @@ Les sources avant cette étape correspondent au [tag `step-30-00`][step-30-00].
 
 #### Paramétrage {#ddui-qs:fff4857a-08a8-4221-9098-fc99072681c0}
 
-Le contrôle de rendu fera référence à une [classe de rendu][ddui-ref_classe-rendu].
-Cette classe de configuration rendu doit être initialisée avant création du contrôle de rendu.
+Le contrôle de vue fera référence à une [classe de rendu][ddui-ref_classe-rendu].
+Cette classe de configuration rendu doit être créée avant création du contrôle de rendu.
 Elle sera utilisée pour modifier le rendu du document dans les étapes suivantes.
 
-Voici le contenu du fichier [`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactRenderConfigView.php`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-30-10/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactRenderConfigView.php "Télécharger le fichier complété") :
+Voici le contenu du fichier à créer [`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactRenderConfigView.php`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-30-10/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactRenderConfigView.php "Télécharger le fichier complété") :
 
     [php]
     <?php
@@ -52,7 +52,7 @@ Voici le contenu du fichier [`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/ContactRender
 
 Une fois cette classe [déployée](#ddui-qs:ac5c3a68-475f-45f7-9a9c-631101f727ab),
 le contrôle de rendu peut être créé à cette adresse :
-[http://localhost:8080/?app=GENERIC&action=GENERIC_EDIT&classid=CVRENDER](http://localhost:8080/?app=GENERIC&action=GENERIC_EDIT&classid=CVRENDER)
+[http://localhost:8082/?app=GENERIC&action=GENERIC_EDIT&classid=CVDOC](http://localhost:8082/?app=GENERIC&action=GENERIC_EDIT&classid=CVDOC)
 
 Nous allons le compléter avec les informations suivantes :
 
@@ -83,11 +83,11 @@ Le déploiement se fait au moyen du _developer toolkit_
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 <span class="flag inline nota-bene"></span> Puisque le contrôle de rendu a été associé au cycle de vie
 après la création du document que nous manipulons, il n'est pas associé automatiquement.
@@ -95,11 +95,11 @@ Il faudrait soit écrire un script de migration, soit créer un nouveau document
 Pour plus de simplicité, nous avons intégré une méthode à notre document pour refaire l'association.
 
 il suffit de se connecter à l'adresse
-[http://localhost:8080/?app=FDL&action=FDL_METHOD&id=CONTACT_JOHN_DOE&method=updateCR](http://localhost:8080/?app=FDL&action=FDL_METHOD&id=CONTACT_JOHN_DOE&method=updateCR)
+[http://localhost:8082/?app=FDL&action=FDL_METHOD&id=CONTACT_JOHN_DOE&method=updateCR](http://localhost:8082/?app=FDL&action=FDL_METHOD&id=CONTACT_JOHN_DOE&method=updateCR)
 
 #### Le résultat {#ddui-qs:84d478b7-c22f-4184-808b-2da2229d2f55}
 
-En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html),
+En consultant le contact _John DOE_ à l'adresse [http://localhost:8082/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8082/api/v1/documents/CONTACT_JOHN_DOE.html),
 aucun changement n'est perceptible.
 En effet, nous avons juste mis en place les points d'entrée pour nos personnalisation à venir.
 
@@ -170,8 +170,11 @@ Nous pouvons maintenant écrire la CSS correspondante dans le fichier
     ******************************************************************************/
     
     /* masquage du label de la photo */
-    label[data-attrid="dc_photo"] {
+    .dcpAttribute__label[data-attrid="dc_photo"]{
         display: none;
+    }
+    .dcpAttribute__label[data-attrid="dc_photo"]::after {
+        content: none;
     }
     
     @media (min-width: 480px) {
@@ -205,8 +208,11 @@ Nous pouvons maintenant écrire la CSS correspondante dans le fichier
            (min-width: 1280px) {
     
         /* masquage du label du logo */
-        label[data-attrid="dc_logo"] {
+        .dcpAttribute__label[data-attrid="dc_logo"]{
             display: none;
+        }
+        .dcpAttribute__label[data-attrid="dc_logo"]::after {
+            content: none;
         }
     }
     
@@ -262,15 +268,15 @@ Le déploiement se fait au moyen du _developer toolkit_
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:772de2b3-2c8a-4a60-80a5-b1f7b131c554}
 
-En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html),
+En consultant le contact _John DOE_ à l'adresse [http://localhost:8082/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8082/api/v1/documents/CONTACT_JOHN_DOE.html),
 on constate bien que les éléments sont réorganisés en fonction de la résolution.
 
 ### Utilisation des templates {#ddui-qs:05b15596-6671-4ff1-ba3a-c904a6e91d2d}
@@ -527,15 +533,15 @@ Le déploiement se fait au moyen du _developer toolkit_
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:dd54a044-6ae9-42c3-95d7-24aba3386c47}
 
-En consultant le contact _John DOE_ à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8080/api/v1/documents/CONTACT_JOHN_DOE.html),
+En consultant le contact _John DOE_ à l'adresse [http://localhost:8082/api/v1/documents/CONTACT_JOHN_DOE.html](http://localhost:8082/api/v1/documents/CONTACT_JOHN_DOE.html),
 la page ressemble à ce qui était attendu.
 De plus, le redimensionnement de la page réorganise bien les éléments.
 
@@ -557,7 +563,7 @@ pour personnaliser le comportement des documents.
 [step-30-10]:                   https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-10.zip
 [step-30-20]:                   https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-20.zip
 [step-30-30]:                   https://github.com/Anakeen/dynacase-ddui-quickstart-code/archive/step-30-30.zip
-[ddui-ref_controle-rendu]:      #ddui-ref:32923fae-57b5-4e57-b048-b7342726101c
+[ddui-ref_controle-vue]:        #ddui-ref:32923fae-57b5-4e57-b048-b7342726101c
 [ddui-ref_classe-rendu]:        #ddui-ref:3d4e2523-9e0b-45d3-aa96-4214d3668b28
 [ddui-ref_templates]:           #ddui-ref:5c19913d-1687-4f31-956b-f590649eb5a0
 [ddui-ref_variables]:           #ddui-ref:134bc49e-6529-4e95-8f07-6e02559c6d8f

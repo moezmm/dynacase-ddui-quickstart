@@ -95,14 +95,19 @@ Nous allons ensuite initialiser la classe d'accès à un rendu dans le fichier
         }
     }
 
-Nous allons également initialiser les 3 masques qui seront utilisés par chacune des vues.
+Nous allons également créer les 3 masques qui seront utilisés par chacune des vues.
 Chaque masque peut être initialisé à l'adresse suivante :
-http://localhost:8080/?app=GENERIC&action=GENERIC_EDIT&classid=MASK&msk_famid=DDUI_TUTO_CONTACT
+[http://localhost:8082/?app=GENERIC&action=GENERIC_EDIT&classid=MASK&msk_famid=DDUI_TUTO_CONTACT](http://localhost:8082/?app=GENERIC&action=GENERIC_EDIT&classid=MASK&msk_famid=DDUI_TUTO_CONTACT)
+
+-   `DDUI_TUTO_CONTACT__MASK__WIZARD_IDENT`: Mettre les attributs de l'onglet' "identité" en lecture écriture, les autres attributs en caché
+-   `DDUI_TUTO_CONTACT__MASK__WIZARD_WORKINFO`: Mettre les attributs de l'onglet "Professionnel" en lecture écriture, les autres attributs en caché
+-   `DDUI_TUTO_CONTACT__MASK__WIZARD_HOMEINFO`: Mettre les attributs de l'onglet "Personnel" en lecture écriture, les autres attributs en caché  
+
 
 Une fois exportés, et correctement ajoutés au fichier [`DDUI_TUTO/Families/DDUI_TUTO_CONTACT/DDUI_TUTO_CONTACT__DATA.csv`](https://github.com/Anakeen/dynacase-ddui-quickstart-code/blob/step-40-10/DDUI_TUTO/Families/DDUI_TUTO_CONTACT/DDUI_TUTO_CONTACT__DATA.csv "Télécharger le fichier complété"), il peuvent être déployés.
 
 Il est maintenant possible de rajouter nos 3 vues dans le contrôle de rendu,
-à l'adresse http://localhost:8080/?app=FDL&action=OPENDOC&mode=view&id=DDUI_TUTO_CONTACT__CVRENDER.
+à l'adresse http://localhost:8082/?app=FDL&action=OPENDOC&mode=view&id=DDUI_TUTO_CONTACT__CVDOC.
 Les vues sont donc maintenant au nombre de 4 :
 
 -   `DEFAULT_VIEW`
@@ -159,15 +164,17 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
+    
+Afin de visualiser le résultat, nous allons créer un nouveau contact qui s'appellera _Thomas ANDERSON_.
 
 #### Le résultat {#ddui-qs:4642aa2a-a191-470a-aec5-13786a481999}
 
-En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons que seul le cadre _identité_ est présenté.
 En effet, notre classe d'accès à un rendu retourne null, laissant le contrôle de rendu afficher sa vue par défaut,
 c'est à dire la première vue de modification.
@@ -275,15 +282,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:5af86030-8a8e-459d-b9b1-81253dd13a7e}
 
-En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons que seul le cadre _identité_ est présenté.
 En effet, en l'absence de données du client, la première vue est sélectionnée et appliquée.
 
@@ -472,15 +479,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:f3a62e88-2c97-4fb6-97e2-f25564c10da6}
 
-En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons que le bandeau de navigation entre les différentes étapes est maintenant visible.
 
 <span class="flag inline nota-bene"></span> Ce bandeau n'est pas fonctionnel pour le moment.
@@ -575,15 +582,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:9b18cdcf-00a4-49a0-a765-1a067113234c}
 
-En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons que le menu présente de nouvelles entrées en lieu et place des anciennes.
 
 ### Partie serveur : Personnalisation du corps du document {#ddui-qs:8f4d8c64-508e-4ef0-bc9e-1e12bdb4737a}
@@ -633,11 +640,11 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:ab6b5cc7-7f77-4e89-bd11-52600b18a071}
 
@@ -681,11 +688,11 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:ebb47ae1-57a3-417c-b4e3-ee018eaa5949}
 
@@ -771,15 +778,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:63cb9890-66cf-4f2c-8777-ef3b69c5d284}
 
-En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons que les chevrons sont colorés en fonction des attributs renseignés.
 
 ### Partie client : Gestion des menus {#ddui-qs:0c8d783c-bc94-4296-b0fe-f45c54ec71de}
@@ -875,15 +882,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:aca3ea75-e03c-4c4d-8bab-aca2123f6f28}
 
-En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons qu'il est possible de naviguer d'étape en étape au moyen du menu.
 
 ### Partie client : Gestion du clic sur une étape {#ddui-qs:0c9079c0-94d8-4990-a304-6ab83ed4f878}
@@ -953,15 +960,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:fca11ecd-69b0-48c6-bec5-6159c22ee858}
 
-En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons qu'il est possible de naviguer d'étape en étape en cliquant sur le libellé des étapes.
 
 ### Partie client : rafraîchissement du résumé lors des changements de valeur {#ddui-qs:861f5783-6771-46e5-906a-da45fc57a462}
@@ -1010,15 +1017,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:a8e3d03b-663c-4e66-bcfd-280ac6b36fe0}
 
-En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons que le bandeau de navigation est bien rafraîchi
 lors de l'ajout ou de la suppression d'une valeur dans le document.
 
@@ -1121,15 +1128,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:a98d847e-1e42-46c6-a256-3cd328f691f2}
 
-En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
+En accédant au contact _Thomas ANDERSON_ en modification à l'adresse [http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html](http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultEdition.html),
 nous constatons que le bouton de fin de wizard est fonctionnel.
 
 ### Partie serveur : Prise en compte du libellé d'étape en consultation {#ddui-qs:fc1ae666-23da-47d9-a9d6-f65cfdcaf6c5}
@@ -1180,15 +1187,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:65663ead-a3d1-4def-8ea9-284e166084a8}
 
-En accédant au contact _Thomas ANDERSON_ en consultation à l'adresse [http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultConsultation.html](http://localhost:8080/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultConsultation.html),
+En accédant au contact _Thomas ANDERSON_ en consultation à l'adresse [http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultConsultation.html](http://localhost:8082/api/v1/documents/CONTACT_THOMAS_ANDERSON/views/!defaultConsultation.html),
 nous constatons que le bouton de modification reflète bien la dernière étape consultée.
 
 ## Conclusion {#ddui-qs:b7d9b582-52be-48d4-8168-5a7f1205f73a}

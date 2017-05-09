@@ -7,7 +7,7 @@ ainsi que de les manipuler simplement, sans devoir injecter de code dans la fami
 ## Principe {#ddui-qs:8132f4e1-905a-4bb4-b4c8-b59f4cc54660}
 
 Ce tutoriel est livré avec une interface minimaliste de gestion des contacts, accessible à l'adresse
-[http://localhost:8080/?app=SIMPLE_LIST](http://localhost:8080/?app=SIMPLE_LIST).
+[http://localhost:8082/?app=SIMPLE_LIST](http://localhost:8082/?app=SIMPLE_LIST).
 
 Cette application affiche en colonne de gauche tous les documents de la famille `Contact`.
 
@@ -88,15 +88,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:83947516-76f8-4a36-be48-b4c7b3e2080b}
 
-Depuis l'application à l'adresse [http://localhost:8080/?app=SIMPLE_LIST](http://localhost:8080/?app=SIMPLE_LIST),
+Depuis l'application à l'adresse [http://localhost:8082/?app=SIMPLE_LIST](http://localhost:8082/?app=SIMPLE_LIST),
 un clic sur un document de la liste de gauche l'ouvre dans la zone de droite.
 
 ### Écoute des modifications du document {#ddui-qs:175403b2-5851-4893-82dc-932db474f6b7}
@@ -144,16 +144,16 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:8dc1348b-2b38-4590-bab0-2374d94e47b6}
 
-Depuis l'application à l'adresse [http://localhost:8080/?app=SIMPLE_LIST](http://localhost:8080/?app=SIMPLE_LIST),
-lors de la modification d'un document ouvert, le statut _modifié_ (matérialisé par une astérisque jaune)
+Depuis l'application à l'adresse [http://localhost:8082/?app=SIMPLE_LIST](http://localhost:8082/?app=SIMPLE_LIST),
+lors de la modification d'un document ouvert, à la suite de la modification d'un champ de saisie, le statut _modifié_ (matérialisé par une astérisque jaune)
 est reporté dans la liste de gauche.
 
 ### Écoute de la sauvegarde d'un document {#ddui-qs:590535e8-6bfa-4d9e-8790-7706818357c6}
@@ -201,15 +201,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:e901ef80-51c9-4437-950e-9a30fb0fb26c}
 
-Depuis l'application à l'adresse [http://localhost:8080/?app=SIMPLE_LIST](http://localhost:8080/?app=SIMPLE_LIST),
+Depuis l'application à l'adresse [http://localhost:8082/?app=SIMPLE_LIST](http://localhost:8082/?app=SIMPLE_LIST),
 lors de la modification du nom ou du prénom d'un contact, le nouveau titre est reporté dans la liste de gauche
 après la sauvegarde du document.
 
@@ -248,15 +248,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:f9f07451-eed4-4c53-9a7e-915523b7ab0e}
 
-Depuis l'application à l'adresse [http://localhost:8080/?app=SIMPLE_LIST](http://localhost:8080/?app=SIMPLE_LIST),
+Depuis l'application à l'adresse [http://localhost:8082/?app=SIMPLE_LIST](http://localhost:8082/?app=SIMPLE_LIST),
 un clic sur le bouton Nouveau Contact ouvre l'interface de création.
 
 ### Écoute de la création d'un document {#ddui-qs:61f5e6ee-a2ab-4c9e-a1ea-63b739804b91}
@@ -306,15 +306,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:86b51b57-6b45-422e-96fb-55174193a926}
 
-Depuis l'application à l'adresse [http://localhost:8080/?app=SIMPLE_LIST](http://localhost:8080/?app=SIMPLE_LIST),
+Depuis l'application à l'adresse [http://localhost:8082/?app=SIMPLE_LIST](http://localhost:8082/?app=SIMPLE_LIST),
 lors de la création d'un contact, le nouveau contact est ajouté à la liste de gauche.
 
 ### Écoute de la suppression d'un document {#ddui-qs:1611579a-0e27-42b8-b39f-82449bd4eea7}
@@ -362,15 +362,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:cf2b391c-f421-4f1f-9ca4-549e991bd4d5}
 
-Depuis l'application à l'adresse [http://localhost:8080/?app=SIMPLE_LIST](http://localhost:8080/?app=SIMPLE_LIST),
+Depuis l'application à l'adresse [http://localhost:8082/?app=SIMPLE_LIST](http://localhost:8082/?app=SIMPLE_LIST),
 lors de la suppression d'un contact, sa fiche est supprimée de la liste de gauche.
 
 ### Écoute de la restauration d'un document {#ddui-qs:4b16b252-2abf-4e52-9d02-27604506cc76}
@@ -418,15 +418,15 @@ La commande est donc :
 
 -   pour linux :
     
-        php dynacase-devtool.phar deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        php dynacase-devtool.phar deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 -   pour windows :
     
-        dynacase-devtool.bat deploy -u localhost -p 8080 -c dynacase -s path/to/sources --auto-release
+        dynacase-devtool.bat deploy -u localhost -p 8082 -c dynacase -s path/to/sources --auto-release
 
 #### Le résultat {#ddui-qs:a69b4398-5980-4f23-8568-b0fdc8187057}
 
-Depuis l'application à l'adresse [http://localhost:8080/?app=SIMPLE_LIST](http://localhost:8080/?app=SIMPLE_LIST),
+Depuis l'application à l'adresse [http://localhost:8082/?app=SIMPLE_LIST](http://localhost:8082/?app=SIMPLE_LIST),
 immédiatement après la suppression d'un contact et que sa fiche ait été supprimée de la liste de gauche,
 il est possible de le restaurer. Sa fiche est alors ajoutée à nouveau à la liste de gauche.
 
